@@ -1,0 +1,28 @@
+#################
+## Dymola 6.1
+#################
+buildlog.txt
+dsin.txt
+dslog.txt
+dsfinal.txt
+dsmodel.c
+dymosim.exe
+*.mat
+
+#############
+## Windows detritus
+#############
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
+.DS_Store
+
