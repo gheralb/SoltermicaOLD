@@ -1,3 +1,2 @@
-//within Soltermica.Ejemplos
-package Ejemplos
+package Ejemplos 
 end Ejemplos;
