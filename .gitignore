@@ -8,6 +8,7 @@ dsfinal.txt
 dsmodel.c
 dymosim.exe
 *.mat
+*.bak-mo
 
 #############
 ## Windows detritus
