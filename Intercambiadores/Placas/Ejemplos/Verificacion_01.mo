@@ -49,10 +49,10 @@ model Verificacion_01
   Modelica.Blocks.Sources.Constant Pconst_1(k=101300) 
     annotation (extent=[-20,-90; -40,-70]);
       IntercambiadorPlacas intercambiadorPlacas_04_1(
-    medium_2=Modelica.Thermal.FluidHeatFlow.Media.Water(), 
-    T0_1=308.15, 
-    T0_2=308.15, 
-    medium_1=Soltermica.Media.Propilenglicol_30(), 
+    medium_2=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+    T0_1=308.15,
+    T0_2=308.15,
+    medium_1=Soltermica.Media.Propilenglicol_30(),
     esp=Soltermica.Intercambiadores.Placas.CatalogoEquipos.SA_M3FG_H_8()) 
         annotation (extent=[-20,10; 0,30]);
 equation 
