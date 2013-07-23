@@ -1,4 +1,5 @@
-class IntercambiadorPlacas "Primeras implementaciones de un intercambiador" 
+model IntercambiadorPlacas 
+  "Primeras implementaciones de un intercambiador. Definición parámetros mediante clase record" 
   
   annotation (
     uses(Modelica(version="2.2.1")),
@@ -51,7 +52,7 @@ class IntercambiadorPlacas "Primeras implementaciones de un intercambiador"
   //parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium_1=Modelica.Thermal.FluidHeatFlow.Media.Medium();
   //parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium_2=Modelica.Thermal.FluidHeatFlow.Media.Medium();
   parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium();
-  //Hidraulicos
+  /*//Hidraulicos
   parameter Modelica.SIunits.MassFlowRate m_flow_nom_1=1;
   parameter Modelica.SIunits.Pressure dp_nom_1=1;
   parameter Modelica.SIunits.MassFlowRate m_flow_nom_2=1;
@@ -60,15 +61,16 @@ class IntercambiadorPlacas "Primeras implementaciones de un intercambiador"
   parameter Modelica.SIunits.Volume V_1=1;//Volumen de la seccion 1 del intercambiador
   parameter Modelica.SIunits.Volume V_2=1;//Volumen de la sección 2 del intercambiador
   parameter Real U_int=1;//Coeficiente global de intercambio
-  parameter Real A_int=1;//Área de intercambio
+  parameter Real A_int=1;//Área de intercambio*/
+  parameter Soltermica.Intercambiadores.Placas.Especificaciones esp =               Soltermica.Intercambiadores.Placas.Especificaciones();
   //Parametros de inicializacion
   parameter Real T0_1=293.15;
   parameter Real T0_2=293.15;
 equation 
   
 //Caidas de presion
-flowPort_a_1.p-flowPort_b_1.p = -dp_nom_1 * (flowPort_a_1.m_flow^2) / (m_flow_nom_1^2);
-flowPort_a_2.p-flowPort_b_2.p = -dp_nom_2 * (flowPort_a_2.m_flow^2) / (m_flow_nom_2^2);
+flowPort_a_1.p-flowPort_b_1.p = -esp.dp_nom_1 * (flowPort_a_1.m_flow^2) / ((esp.V_flow_nom_1*medium.rho)^2);
+flowPort_a_2.p-flowPort_b_2.p = -esp.dp_nom_2 * (flowPort_a_2.m_flow^2) / ((esp.V_flow_nom_2*medium.rho)^2);
   
 //Balance de materia
 flowPort_a_1.m_flow+flowPort_b_1.m_flow=0;
@@ -80,8 +82,8 @@ flowPort_a_2.H_flow+flowPort_b_2.H_flow+Q_int_2=der(H_2);
 Q_int_1+Q_int_2=0;
   
 //Entalpías
-H_1=V_1*medium.rho*medium.cp*T_1;
-H_2=V_2*medium.rho*medium.cp*T_2;
+H_1=esp.V_1*medium.rho*medium.cp*T_1;
+H_2=esp.V_2*medium.rho*medium.cp*T_2;
   
 //Temperaturas
 flowPort_a_1.H_flow=flowPort_a_1.m_flow*medium.cp*T_in_1;
@@ -94,8 +96,8 @@ T_out_1=T_1;
 T_out_2=T_2;
   
 //Potencia intercambiada
-DeltaT=((T_in_1+T_out_1)/2)-((T_in_2+T_out_2)/2);
-Q_int_2=U_int*A_int*DeltaT;
+DeltaT=((T_in_1+T_1)/2)-((T_in_2+T_2)/2);
+Q_int_2=esp.U_int*esp.S_int*DeltaT;
   
 /*DeltaT_1=if T_in_1>=T_out_2 then T_in_1-T_out_2 else 0;
 DeltaT_2=if T_out_1>=T_in_2 then T_out_1-T_in_2 else 0;
@@ -105,7 +107,7 @@ LMTD = if (DeltaT_1*DeltaT_2>=0) and (DeltaT_1*DeltaT_2<=0) then (0.5*(DeltaT_1+
        0.5*(DeltaT_1+DeltaT_2)+(1-sqrt(DeltaT_1-DeltaT_2)/(DeltaT_1*DeltaT_2)+(1+sqrt(DeltaT_1-DeltaT_2)/(DeltaT_1*DeltaT_2)/2/12));*/
   
 initial equation 
-H_1=V_1*medium.rho*medium.cp*T0_1;
-H_2=V_2*medium.rho*medium.cp*T0_2;
+H_1=esp.V_1*medium.rho*medium.cp*T0_1;
+H_2=esp.V_2*medium.rho*medium.cp*T0_2;
   
 end IntercambiadorPlacas;
