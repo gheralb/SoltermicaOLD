@@ -15,7 +15,7 @@ model DemandaBomba
       extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
       tableOnFile=true,
       smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
-      tableName="perfil1", 
+      tableName="perfil1",
     fileName="consumo.dat") 
       annotation (extent=[-60,50; -40,70]);
 equation 

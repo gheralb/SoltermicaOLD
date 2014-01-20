@@ -1,0 +1,662 @@
+  model Soltermica.Acumuladores.Interacumuladores.Verificacion_02
+  parameter Real ambient.medium.rho(unit = "kg/m3", min = 0.0) "density";
+  parameter Real ambient.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient.medium.lamda(unit = "W/(m.K)") "thermal conductivity";
+  parameter Real ambient.medium.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real ambient.flowPort.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real ambient.flowPort.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient.flowPort.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient.flowPort.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real ambient.flowPort.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real ambient.p_Ambient(unit = "Pa") = 101300;
+  parameter Real ambient.T_Ambient(unit = "K", min = 0.0) = 293.15;
+  parameter Real ambient1.medium.rho(unit = "kg/m3", min = 0.0) "density";
+  parameter Real ambient1.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient1.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient1.medium.lamda(unit = "W/(m.K)") "thermal conductivity";
+  parameter Real ambient1.medium.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real ambient1.flowPort.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real ambient1.flowPort.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient1.flowPort.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient1.flowPort.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real ambient1.flowPort.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real ambient1.p_Ambient(unit = "Pa") = 101300;
+  parameter Real ambient1.T_Ambient(unit = "K", min = 0.0) = 293.15;
+  parameter Real trapezoid.amplitude = 0.0003 "Amplitude of trapezoid";
+  parameter Real trapezoid.rising(unit = "s", min = 0.0) = 1 "Rising duration of trapezoid";
+  parameter Real trapezoid.width(unit = "s", min = 0.0) = 180 "Width duration of trapezoid";
+  parameter Real trapezoid.falling(unit = "s", min = 0.0) = 1 "Falling duration of trapezoid";
+  parameter Real trapezoid.period(unit = "s", min = 1E-060) = 600 
+    "Time for one period";
+  parameter Integer trapezoid.nperiod = (-1) "Number of periods (< 0 means infinite number of periods)";
+  parameter Real trapezoid.offset = 0 "Offset of output signal";
+  parameter Real trapezoid.startTime(unit = "s") = 20 "Output = offset for time < startTime";
+protected 
+  parameter Real trapezoid.T_rising(unit = "s") = trapezoid.rising 
+    "End time of rising phase within one period";
+  parameter Real trapezoid.T_width(unit = "s") = trapezoid.T_rising+
+    trapezoid.width "End time of width phase within one period";
+  parameter Real trapezoid.T_falling(unit = "s") = trapezoid.T_width+
+    trapezoid.falling "End time of falling phase within one period";
+public 
+  parameter Real prescribedVolumeFlow.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real prescribedVolumeFlow.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedVolumeFlow.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real prescribedVolumeFlow.m(unit = "kg", min = 0.0) = 0.1 
+    "mass of medium";
+  parameter Real prescribedVolumeFlow.T0(unit = "K", min = 0.0) = 293.15 
+    "initial temperature of medium";
+  parameter Real prescribedVolumeFlow.flowPort_a.medium.rho(unit = "kg/m3", 
+    min = 0.0) "density";
+  parameter Real prescribedVolumeFlow.flowPort_a.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow.flowPort_a.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow.flowPort_a.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedVolumeFlow.flowPort_a.medium.nue(unit = "m2/s", 
+    min = 0.0) "kinematic viscosity";
+  parameter Real prescribedVolumeFlow.flowPort_b.medium.rho(unit = "kg/m3", 
+    min = 0.0) "density";
+  parameter Real prescribedVolumeFlow.flowPort_b.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow.flowPort_b.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow.flowPort_b.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedVolumeFlow.flowPort_b.medium.nue(unit = "m2/s", 
+    min = 0.0) "kinematic viscosity";
+  parameter Real ambient3.medium.rho(unit = "kg/m3", min = 0.0) "density";
+  parameter Real ambient3.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient3.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient3.medium.lamda(unit = "W/(m.K)") "thermal conductivity";
+  parameter Real ambient3.medium.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real ambient3.flowPort.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real ambient3.flowPort.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real ambient3.flowPort.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real ambient3.flowPort.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real ambient3.flowPort.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real ambient3.p_Ambient(unit = "Pa") = 101300;
+  parameter Real ambient3.T_Ambient(unit = "K", min = 0.0) = Modelica.SIunits.Conversions.from_degC
+    (20);
+  parameter Real prescribedAmbient.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real prescribedAmbient.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real prescribedAmbient.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real prescribedAmbient.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedAmbient.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real prescribedAmbient.flowPort.medium.rho(unit = "kg/m3", min = 0.0)
+     "density";
+  parameter Real prescribedAmbient.flowPort.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedAmbient.flowPort.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedAmbient.flowPort.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedAmbient.flowPort.medium.nue(unit = "m2/s", min = 0.0)
+     "kinematic viscosity";
+  parameter Real const.k = 101300 "Constant output value";
+  parameter Real ramp.height = 20 "Height of ramps";
+  parameter Real ramp.duration(min = 1E-060) = 2 "Durations of ramp";
+  parameter Real ramp.offset = 273.15 "Offset of output signal";
+  parameter Real ramp.startTime(unit = "s") = 10 "Output = offset for time < startTime";
+  parameter Real prescribedVolumeFlow1.medium.rho(unit = "kg/m3", min = 0.0) 
+    "density";
+  parameter Real prescribedVolumeFlow1.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow1.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow1.medium.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real prescribedVolumeFlow1.medium.nue(unit = "m2/s", min = 0.0) 
+    "kinematic viscosity";
+  parameter Real prescribedVolumeFlow1.m(unit = "kg", min = 0.0) = 0.1 
+    "mass of medium";
+  parameter Real prescribedVolumeFlow1.T0(unit = "K", min = 0.0) = 
+    Modelica.SIunits.Conversions.from_degC(20) "initial temperature of medium";
+  parameter Real prescribedVolumeFlow1.flowPort_a.medium.rho(unit = "kg/m3", 
+    min = 0.0) "density";
+  parameter Real prescribedVolumeFlow1.flowPort_a.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow1.flowPort_a.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow1.flowPort_a.medium.lamda(unit = "W/(m.K)")
+     "thermal conductivity";
+  parameter Real prescribedVolumeFlow1.flowPort_a.medium.nue(unit = "m2/s", 
+    min = 0.0) "kinematic viscosity";
+  parameter Real prescribedVolumeFlow1.flowPort_b.medium.rho(unit = "kg/m3", 
+    min = 0.0) "density";
+  parameter Real prescribedVolumeFlow1.flowPort_b.medium.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real prescribedVolumeFlow1.flowPort_b.medium.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real prescribedVolumeFlow1.flowPort_b.medium.lamda(unit = "W/(m.K)")
+     "thermal conductivity";
+  parameter Real prescribedVolumeFlow1.flowPort_b.medium.nue(unit = "m2/s", 
+    min = 0.0) "kinematic viscosity";
+  parameter Real trapezoid1.amplitude = 0 "Amplitude of trapezoid";
+  parameter Real trapezoid1.rising(unit = "s", min = 0.0) = 0 "Rising duration of trapezoid";
+  parameter Real trapezoid1.width(unit = "s", min = 0.0) = 0.5 "Width duration of trapezoid";
+  parameter Real trapezoid1.falling(unit = "s", min = 0.0) = 0 "Falling duration of trapezoid";
+  parameter Real trapezoid1.period(unit = "s", min = 1E-060) = 1 
+    "Time for one period";
+  parameter Integer trapezoid1.nperiod = (-1) "Number of periods (< 0 means infinite number of periods)";
+  parameter Real trapezoid1.offset = 0 "Offset of output signal";
+  parameter Real trapezoid1.startTime(unit = "s") = 0 "Output = offset for time < startTime";
+protected 
+  parameter Real trapezoid1.T_rising(unit = "s") = trapezoid1.rising 
+    "End time of rising phase within one period";
+  parameter Real trapezoid1.T_width(unit = "s") = trapezoid1.T_rising+
+    trapezoid1.width "End time of width phase within one period";
+  parameter Real trapezoid1.T_falling(unit = "s") = trapezoid1.T_width+
+    trapezoid1.falling "End time of falling phase within one period";
+public 
+  parameter Real interacumuladorSerpentin.flowPort_a_dep.medium.rho(unit = 
+    "kg/m3", min = 0.0) "density";
+  parameter Real interacumuladorSerpentin.flowPort_a_dep.medium.cp(unit = 
+    "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.flowPort_a_dep.medium.cv(unit = 
+    "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.flowPort_a_dep.medium.lamda(unit = 
+    "W/(m.K)") "thermal conductivity";
+  parameter Real interacumuladorSerpentin.flowPort_a_dep.medium.nue(unit = 
+    "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real interacumuladorSerpentin.flowPort_b_dep.medium.rho(unit = 
+    "kg/m3", min = 0.0) "density";
+  parameter Real interacumuladorSerpentin.flowPort_b_dep.medium.cp(unit = 
+    "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.flowPort_b_dep.medium.cv(unit = 
+    "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.flowPort_b_dep.medium.lamda(unit = 
+    "W/(m.K)") "thermal conductivity";
+  parameter Real interacumuladorSerpentin.flowPort_b_dep.medium.nue(unit = 
+    "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real interacumuladorSerpentin.medium_int.rho(unit = "kg/m3", min = 
+    0.0) "density";
+  parameter Real interacumuladorSerpentin.medium_int.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.medium_int.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.medium_int.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real interacumuladorSerpentin.medium_int.nue(unit = "m2/s", min = 
+    0.0) "kinematic viscosity";
+  parameter Real interacumuladorSerpentin.medium_dep.rho(unit = "kg/m3", min = 
+    0.0) "density";
+  parameter Real interacumuladorSerpentin.medium_dep.cp(unit = "J/(kg.K)") 
+    "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.medium_dep.cv(unit = "J/(kg.K)") 
+    "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.medium_dep.lamda(unit = "W/(m.K)") 
+    "thermal conductivity";
+  parameter Real interacumuladorSerpentin.medium_dep.nue(unit = "m2/s", min = 
+    0.0) "kinematic viscosity";
+  parameter Real interacumuladorSerpentin.esp.V_dep(unit = "m3");
+  parameter Real interacumuladorSerpentin.esp.V_int(unit = "m3");
+  parameter Real interacumuladorSerpentin.esp.m_flow_int_nom(unit = "kg/s");
+  parameter Real interacumuladorSerpentin.esp.dp_int_nom(unit = "Pa");
+  parameter Real interacumuladorSerpentin.esp.m_flow_dep_nom(unit = "kg/s");
+  parameter Real interacumuladorSerpentin.esp.dp_dep_nom(unit = "Pa");
+  parameter Real interacumuladorSerpentin.esp.A_int(unit = "m2");
+  parameter Real interacumuladorSerpentin.esp.U_int;
+  parameter Real interacumuladorSerpentin.T0(unit = "K", min = 0.0) = 273.15;
+  parameter Real interacumuladorSerpentin.flowPort_a_int.medium.rho(unit = 
+    "kg/m3", min = 0.0) "density";
+  parameter Real interacumuladorSerpentin.flowPort_a_int.medium.cp(unit = 
+    "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.flowPort_a_int.medium.cv(unit = 
+    "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.flowPort_a_int.medium.lamda(unit = 
+    "W/(m.K)") "thermal conductivity";
+  parameter Real interacumuladorSerpentin.flowPort_a_int.medium.nue(unit = 
+    "m2/s", min = 0.0) "kinematic viscosity";
+  parameter Real interacumuladorSerpentin.flowPort_b_int.medium.rho(unit = 
+    "kg/m3", min = 0.0) "density";
+  parameter Real interacumuladorSerpentin.flowPort_b_int.medium.cp(unit = 
+    "J/(kg.K)") "specific heat capacity at constant pressure";
+  parameter Real interacumuladorSerpentin.flowPort_b_int.medium.cv(unit = 
+    "J/(kg.K)") "specific heat capacity at constant volume";
+  parameter Real interacumuladorSerpentin.flowPort_b_int.medium.lamda(unit = 
+    "W/(m.K)") "thermal conductivity";
+  parameter Real interacumuladorSerpentin.flowPort_b_int.medium.nue(unit = 
+    "m2/s", min = 0.0) "kinematic viscosity";
+
+  Real ambient.T(unit = "K", min = 0.0) "outlet temperature of medium";
+  Real ambient.T_port(unit = "K", min = 0.0) = ambient.flowPort.h/
+    ambient.medium.cp "temperature at flowPort_a";
+protected 
+  Real ambient.h(unit = "J/kg") = ambient.medium.cp*ambient.T;
+public 
+  Real ambient.flowPort.p(unit = "Pa");
+  Real ambient.flowPort.m_flow(unit = "kg/s");
+  Real ambient.flowPort.h(unit = "J/kg");
+  Real ambient.flowPort.H_flow(unit = "W");
+  Real ambient1.T(unit = "K", min = 0.0) "outlet temperature of medium";
+  Real ambient1.T_port(unit = "K", min = 0.0) = ambient1.flowPort.h/
+    ambient1.medium.cp "temperature at flowPort_a";
+protected 
+  Real ambient1.h(unit = "J/kg") = ambient1.medium.cp*ambient1.T;
+public 
+  Real ambient1.flowPort.p(unit = "Pa");
+  Real ambient1.flowPort.m_flow(unit = "kg/s");
+  Real ambient1.flowPort.h(unit = "J/kg");
+  Real ambient1.flowPort.H_flow(unit = "W");
+  Real trapezoid.y "Connector of Real output signal";
+protected 
+  Real trapezoid.T0(start = trapezoid.startTime, unit = "s") "Start time of current period";
+  Integer trapezoid.counter(start = trapezoid.nperiod) "Period counter";
+  Integer trapezoid.counter2(start = trapezoid.nperiod);
+public 
+  Real prescribedVolumeFlow.dp(unit = "Pa") = prescribedVolumeFlow.flowPort_a.p-
+    prescribedVolumeFlow.flowPort_b.p "pressure drop a->b";
+  Real prescribedVolumeFlow.V_flow(unit = "m3/s") = prescribedVolumeFlow.flowPort_a.m_flow
+    /prescribedVolumeFlow.medium.rho "Volume flow a->b";
+  Real prescribedVolumeFlow.Q_flow(unit = "W") "heat exchange with ambient";
+  Real prescribedVolumeFlow.T(start = prescribedVolumeFlow.T0, unit = "K", 
+    min = 0.0) "outlet temperature of medium";
+  Real prescribedVolumeFlow.T_a(unit = "K", min = 0.0) = prescribedVolumeFlow.flowPort_a.h
+    /prescribedVolumeFlow.medium.cp "temperature at flowPort_a";
+  Real prescribedVolumeFlow.T_b(unit = "K", min = 0.0) = prescribedVolumeFlow.flowPort_b.h
+    /prescribedVolumeFlow.medium.cp "temperature at flowPort_b";
+  Real prescribedVolumeFlow.dT(unit = "K") = (if noEvent(prescribedVolumeFlow.V_flow
+     >= 0) then prescribedVolumeFlow.T-prescribedVolumeFlow.T_a else 
+    prescribedVolumeFlow.T_b-prescribedVolumeFlow.T) "temperature increase of coolant in flow direction";
+protected 
+  Real prescribedVolumeFlow.h(unit = "J/kg") = prescribedVolumeFlow.medium.cp*
+    prescribedVolumeFlow.T "medium's specific enthalpy";
+  Real prescribedVolumeFlow.T_q(unit = "K", min = 0.0) = prescribedVolumeFlow.T 
+    "temperature relevant for heat exchange with ambient";
+public 
+  Real prescribedVolumeFlow.flowPort_a.p(unit = "Pa");
+  Real prescribedVolumeFlow.flowPort_a.m_flow(unit = "kg/s");
+  Real prescribedVolumeFlow.flowPort_a.h(unit = "J/kg");
+  Real prescribedVolumeFlow.flowPort_a.H_flow(unit = "W");
+  Real prescribedVolumeFlow.flowPort_b.p(unit = "Pa");
+  Real prescribedVolumeFlow.flowPort_b.m_flow(unit = "kg/s");
+  Real prescribedVolumeFlow.flowPort_b.h(unit = "J/kg");
+  Real prescribedVolumeFlow.flowPort_b.H_flow(unit = "W");
+  Real prescribedVolumeFlow.VolumeFlow(unit = "m3/s");
+  Real ambient3.T(unit = "K", min = 0.0) "outlet temperature of medium";
+  Real ambient3.T_port(unit = "K", min = 0.0) = ambient3.flowPort.h/
+    ambient3.medium.cp "temperature at flowPort_a";
+protected 
+  Real ambient3.h(unit = "J/kg") = ambient3.medium.cp*ambient3.T;
+public 
+  Real ambient3.flowPort.p(unit = "Pa");
+  Real ambient3.flowPort.m_flow(unit = "kg/s");
+  Real ambient3.flowPort.h(unit = "J/kg");
+  Real ambient3.flowPort.H_flow(unit = "W");
+  Real prescribedAmbient.T(unit = "K", min = 0.0) "outlet temperature of medium";
+  Real prescribedAmbient.T_port(unit = "K", min = 0.0) = prescribedAmbient.flowPort.h
+    /prescribedAmbient.medium.cp "temperature at flowPort_a";
+protected 
+  Real prescribedAmbient.h(unit = "J/kg") = prescribedAmbient.medium.cp*
+    prescribedAmbient.T;
+public 
+  Real prescribedAmbient.flowPort.p(unit = "Pa");
+  Real prescribedAmbient.flowPort.m_flow(unit = "kg/s");
+  Real prescribedAmbient.flowPort.h(unit = "J/kg");
+  Real prescribedAmbient.flowPort.H_flow(unit = "W");
+  Real prescribedAmbient.p_Ambient(unit = "Pa");
+  Real prescribedAmbient.T_Ambient(unit = "K", min = 0.0);
+  Real const.y "Connector of Real output signal";
+  Real ramp.y "Connector of Real output signal";
+  Real prescribedVolumeFlow1.dp(unit = "Pa") = prescribedVolumeFlow1.flowPort_a.p
+    -prescribedVolumeFlow1.flowPort_b.p "pressure drop a->b";
+  Real prescribedVolumeFlow1.V_flow(unit = "m3/s") = prescribedVolumeFlow1.flowPort_a.m_flow
+    /prescribedVolumeFlow1.medium.rho "Volume flow a->b";
+  Real prescribedVolumeFlow1.Q_flow(unit = "W") "heat exchange with ambient";
+  Real prescribedVolumeFlow1.T(start = prescribedVolumeFlow1.T0, unit = "K", 
+    min = 0.0) "outlet temperature of medium";
+  Real prescribedVolumeFlow1.T_a(unit = "K", min = 0.0) = prescribedVolumeFlow1.flowPort_a.h
+    /prescribedVolumeFlow1.medium.cp "temperature at flowPort_a";
+  Real prescribedVolumeFlow1.T_b(unit = "K", min = 0.0) = prescribedVolumeFlow1.flowPort_b.h
+    /prescribedVolumeFlow1.medium.cp "temperature at flowPort_b";
+  Real prescribedVolumeFlow1.dT(unit = "K") = (if noEvent(prescribedVolumeFlow1.V_flow
+     >= 0) then prescribedVolumeFlow1.T-prescribedVolumeFlow1.T_a else 
+    prescribedVolumeFlow1.T_b-prescribedVolumeFlow1.T) "temperature increase of coolant in flow direction";
+protected 
+  Real prescribedVolumeFlow1.h(unit = "J/kg") = prescribedVolumeFlow1.medium.cp*
+    prescribedVolumeFlow1.T "medium's specific enthalpy";
+  Real prescribedVolumeFlow1.T_q(unit = "K", min = 0.0) = prescribedVolumeFlow1.T
+     "temperature relevant for heat exchange with ambient";
+public 
+  Real prescribedVolumeFlow1.flowPort_a.p(unit = "Pa");
+  Real prescribedVolumeFlow1.flowPort_a.m_flow(unit = "kg/s");
+  Real prescribedVolumeFlow1.flowPort_a.h(unit = "J/kg");
+  Real prescribedVolumeFlow1.flowPort_a.H_flow(unit = "W");
+  Real prescribedVolumeFlow1.flowPort_b.p(unit = "Pa");
+  Real prescribedVolumeFlow1.flowPort_b.m_flow(unit = "kg/s");
+  Real prescribedVolumeFlow1.flowPort_b.h(unit = "J/kg");
+  Real prescribedVolumeFlow1.flowPort_b.H_flow(unit = "W");
+  Real prescribedVolumeFlow1.VolumeFlow(unit = "m3/s");
+  Real trapezoid1.y "Connector of Real output signal";
+protected 
+  Real trapezoid1.T0(start = trapezoid1.startTime, unit = "s") "Start time of current period";
+  Integer trapezoid1.counter(start = trapezoid1.nperiod) "Period counter";
+  Integer trapezoid1.counter2(start = trapezoid1.nperiod);
+public 
+  Real interacumuladorSerpentin.flowPort_a_dep.p(unit = "Pa");
+  Real interacumuladorSerpentin.flowPort_a_dep.m_flow(unit = "kg/s");
+  Real interacumuladorSerpentin.flowPort_a_dep.h(unit = "J/kg");
+  Real interacumuladorSerpentin.flowPort_a_dep.H_flow(unit = "W");
+  Real interacumuladorSerpentin.flowPort_b_dep.p(unit = "Pa");
+  Real interacumuladorSerpentin.flowPort_b_dep.m_flow(unit = "kg/s");
+  Real interacumuladorSerpentin.flowPort_b_dep.h(unit = "J/kg");
+  Real interacumuladorSerpentin.flowPort_b_dep.H_flow(unit = "W");
+  Real interacumuladorSerpentin.H_dep(unit = "J");
+  Real interacumuladorSerpentin.T_dep(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.T_in_AF(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.T_out_ACS(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.Q_int_dep(unit = "W");
+  Real interacumuladorSerpentin.H_int(unit = "J");
+  Real interacumuladorSerpentin.T_int(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.T_in_int(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.T_out_int(unit = "K", min = 0.0);
+  Real interacumuladorSerpentin.Q_int_int(unit = "W");
+  Real interacumuladorSerpentin.DeltaT(unit = "K");
+  Real interacumuladorSerpentin.flowPort_a_int.p(unit = "Pa");
+  Real interacumuladorSerpentin.flowPort_a_int.m_flow(unit = "kg/s");
+  Real interacumuladorSerpentin.flowPort_a_int.h(unit = "J/kg");
+  Real interacumuladorSerpentin.flowPort_a_int.H_flow(unit = "W");
+  Real interacumuladorSerpentin.flowPort_b_int.p(unit = "Pa");
+  Real interacumuladorSerpentin.flowPort_b_int.m_flow(unit = "kg/s");
+  Real interacumuladorSerpentin.flowPort_b_int.h(unit = "J/kg");
+  Real interacumuladorSerpentin.flowPort_b_int.H_flow(unit = "W");
+
+  function Modelica.SIunits.Conversions.from_degC
+    input Real Celsius "Celsius value";
+    output Real Kelvin "Kelvin value";
+
+algorithm 
+  Kelvin := 273.15+Celsius;
+end Modelica.SIunits.Conversions.from_degC;
+function Modelica.Thermal.FluidHeatFlow.Media.Water
+  input Real rho := 995.6 "density";
+  input Real cp := 4177 "specific heat capacity at constant pressure";
+  input Real cv := 4177 "specific heat capacity at constant volume";
+  input Real lamda := 0.615 "thermal conductivity";
+  input Real nue := 8E-007 "kinematic viscosity";
+  output Modelica.Thermal.FluidHeatFlow.Media.Water _out := Modelica.Thermal.FluidHeatFlow.Media.Water
+    (
+    rho = rho, 
+    cp = cp, 
+    cv = cv, 
+    lamda = lamda, 
+    nue = nue
+  );
+
+algorithm 
+end Modelica.Thermal.FluidHeatFlow.Media.Water;
+function Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.HEATSUN_ISSWX200
+  input Real V_dep := 0.2;
+  input Real V_int := 0.01;
+  input Real m_flow_int_nom := 0.00055556;
+  input Real dp_int_nom := 17800;
+  input Real m_flow_dep_nom := 0.00055556;
+  input Real dp_dep_nom := 17800;
+  input Real A_int := 1;
+  input Real U_int := 500;
+  output Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.HEATSUN_ISSWX200 
+    _out := Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.HEATSUN_ISSWX200
+    (
+    V_dep = V_dep, 
+    V_int = V_int, 
+    m_flow_int_nom = m_flow_int_nom, 
+    dp_int_nom = dp_int_nom, 
+    m_flow_dep_nom = m_flow_dep_nom, 
+    dp_dep_nom = dp_dep_nom, 
+    A_int = A_int, 
+    U_int = U_int
+  );
+
+algorithm 
+end Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.HEATSUN_ISSWX200;
+equation
+ambient.flowPort.H_flow = semiLinear(ambient.flowPort.m_flow, ambient.flowPort.h,
+   ambient.h);
+ambient.flowPort.p = ambient.p_Ambient;
+ambient.T = ambient.T_Ambient;
+ambient1.flowPort.H_flow = semiLinear(ambient1.flowPort.m_flow, ambient1.flowPort.h,
+   ambient1.h);
+ambient1.flowPort.p = ambient1.p_Ambient;
+ambient1.T = ambient1.T_Ambient;
+when pre(trapezoid.counter2) <> 0 and sample(trapezoid.startTime, 
+  trapezoid.period) then
+  trapezoid.T0 = time;
+  trapezoid.counter2 = pre(trapezoid.counter);
+  trapezoid.counter = pre(trapezoid.counter)-(if pre(trapezoid.counter) > 0
+     then 1 else 0);
+end when;
+trapezoid.y = trapezoid.offset+(if time < trapezoid.startTime or 
+  trapezoid.counter2 == 0 or time >= trapezoid.T0+trapezoid.T_falling then 0
+   else (if time < trapezoid.T0+trapezoid.T_rising then (time-trapezoid.T0)*
+  trapezoid.amplitude/trapezoid.T_rising else (if time < trapezoid.T0+
+  trapezoid.T_width then trapezoid.amplitude else (trapezoid.T0+trapezoid.T_falling
+  -time)*trapezoid.amplitude/(trapezoid.T_falling-trapezoid.T_width))));
+prescribedVolumeFlow.flowPort_a.m_flow+prescribedVolumeFlow.flowPort_b.m_flow = 0;
+if (prescribedVolumeFlow.m > 1E-060) then 
+  prescribedVolumeFlow.flowPort_a.H_flow+prescribedVolumeFlow.flowPort_b.H_flow+
+    prescribedVolumeFlow.Q_flow = prescribedVolumeFlow.m*prescribedVolumeFlow.medium.cv
+    *der(prescribedVolumeFlow.T);
+else
+  prescribedVolumeFlow.flowPort_a.H_flow+prescribedVolumeFlow.flowPort_b.H_flow+
+    prescribedVolumeFlow.Q_flow = 0;
+end if;
+prescribedVolumeFlow.flowPort_a.H_flow = semiLinear(prescribedVolumeFlow.flowPort_a.m_flow,
+   prescribedVolumeFlow.flowPort_a.h, prescribedVolumeFlow.h);
+prescribedVolumeFlow.flowPort_b.H_flow = semiLinear(prescribedVolumeFlow.flowPort_b.m_flow,
+   prescribedVolumeFlow.flowPort_b.h, prescribedVolumeFlow.h);
+prescribedVolumeFlow.Q_flow = 0;
+prescribedVolumeFlow.V_flow = prescribedVolumeFlow.VolumeFlow;
+ambient3.flowPort.H_flow = semiLinear(ambient3.flowPort.m_flow, ambient3.flowPort.h,
+   ambient3.h);
+ambient3.flowPort.p = ambient3.p_Ambient;
+ambient3.T = ambient3.T_Ambient;
+prescribedAmbient.flowPort.H_flow = semiLinear(prescribedAmbient.flowPort.m_flow,
+   prescribedAmbient.flowPort.h, prescribedAmbient.h);
+prescribedAmbient.flowPort.p = prescribedAmbient.p_Ambient;
+prescribedAmbient.T = prescribedAmbient.T_Ambient;
+const.y = const.k;
+ramp.y = ramp.offset+(if time < ramp.startTime then 0 else (if time < 
+  ramp.startTime+ramp.duration then (time-ramp.startTime)*ramp.height/
+  ramp.duration else ramp.height));
+prescribedVolumeFlow1.flowPort_a.m_flow+prescribedVolumeFlow1.flowPort_b.m_flow
+   = 0;
+if (prescribedVolumeFlow1.m > 1E-060) then 
+  prescribedVolumeFlow1.flowPort_a.H_flow+prescribedVolumeFlow1.flowPort_b.H_flow
+    +prescribedVolumeFlow1.Q_flow = prescribedVolumeFlow1.m*prescribedVolumeFlow1.medium.cv
+    *der(prescribedVolumeFlow1.T);
+else
+  prescribedVolumeFlow1.flowPort_a.H_flow+prescribedVolumeFlow1.flowPort_b.H_flow
+    +prescribedVolumeFlow1.Q_flow = 0;
+end if;
+prescribedVolumeFlow1.flowPort_a.H_flow = semiLinear(prescribedVolumeFlow1.flowPort_a.m_flow,
+   prescribedVolumeFlow1.flowPort_a.h, prescribedVolumeFlow1.h);
+prescribedVolumeFlow1.flowPort_b.H_flow = semiLinear(prescribedVolumeFlow1.flowPort_b.m_flow,
+   prescribedVolumeFlow1.flowPort_b.h, prescribedVolumeFlow1.h);
+prescribedVolumeFlow1.Q_flow = 0;
+prescribedVolumeFlow1.V_flow = prescribedVolumeFlow1.VolumeFlow;
+when pre(trapezoid1.counter2) <> 0 and sample(trapezoid1.startTime, 
+  trapezoid1.period) then
+  trapezoid1.T0 = time;
+  trapezoid1.counter2 = pre(trapezoid1.counter);
+  trapezoid1.counter = pre(trapezoid1.counter)-(if pre(trapezoid1.counter) > 0
+     then 1 else 0);
+end when;
+trapezoid1.y = trapezoid1.offset+(if time < trapezoid1.startTime or 
+  trapezoid1.counter2 == 0 or time >= trapezoid1.T0+trapezoid1.T_falling then 0
+   else (if time < trapezoid1.T0+trapezoid1.T_rising then (time-trapezoid1.T0)*
+  trapezoid1.amplitude/trapezoid1.T_rising else (if time < trapezoid1.T0+
+  trapezoid1.T_width then trapezoid1.amplitude else (trapezoid1.T0+
+  trapezoid1.T_falling-time)*trapezoid1.amplitude/(trapezoid1.T_falling-
+  trapezoid1.T_width))));
+interacumuladorSerpentin.T_in_AF = (if noEvent(interacumuladorSerpentin.flowPort_a_dep.m_flow
+   > 0) then interacumuladorSerpentin.flowPort_a_dep.h/interacumuladorSerpentin.medium_dep.cp
+   else interacumuladorSerpentin.T_dep);
+interacumuladorSerpentin.T_out_ACS = interacumuladorSerpentin.T_dep;
+interacumuladorSerpentin.T_in_int = (if noEvent(interacumuladorSerpentin.flowPort_a_int.m_flow
+   > 0) then interacumuladorSerpentin.flowPort_a_int.h/interacumuladorSerpentin.medium_int.cp
+   else interacumuladorSerpentin.T_int);
+interacumuladorSerpentin.T_out_int = interacumuladorSerpentin.T_int;
+interacumuladorSerpentin.flowPort_a_dep.p-interacumuladorSerpentin.flowPort_b_dep.p
+   =  -interacumuladorSerpentin.esp.dp_dep_nom*interacumuladorSerpentin.flowPort_a_dep.m_flow
+  ^2/interacumuladorSerpentin.esp.m_flow_dep_nom^2;
+interacumuladorSerpentin.flowPort_a_int.p-interacumuladorSerpentin.flowPort_b_int.p
+   =  -interacumuladorSerpentin.esp.dp_dep_nom*interacumuladorSerpentin.flowPort_a_int.m_flow
+  ^2/interacumuladorSerpentin.esp.m_flow_dep_nom^2;
+interacumuladorSerpentin.flowPort_a_dep.m_flow+interacumuladorSerpentin.flowPort_b_dep.m_flow
+   = 0;
+interacumuladorSerpentin.flowPort_a_int.m_flow+interacumuladorSerpentin.flowPort_b_int.m_flow
+   = 0;
+interacumuladorSerpentin.flowPort_a_dep.H_flow+interacumuladorSerpentin.flowPort_b_dep.H_flow
+  +interacumuladorSerpentin.Q_int_dep = interacumuladorSerpentin.esp.V_dep*
+  interacumuladorSerpentin.medium_dep.rho*interacumuladorSerpentin.medium_dep.cp
+  *der(interacumuladorSerpentin.T_dep);
+interacumuladorSerpentin.flowPort_a_int.H_flow+interacumuladorSerpentin.flowPort_b_int.H_flow
+  +interacumuladorSerpentin.Q_int_int = interacumuladorSerpentin.esp.V_int*
+  interacumuladorSerpentin.medium_int.rho*interacumuladorSerpentin.medium_int.cp
+  *der(interacumuladorSerpentin.T_int);
+interacumuladorSerpentin.Q_int_dep+interacumuladorSerpentin.Q_int_int = 0;
+interacumuladorSerpentin.H_dep = interacumuladorSerpentin.esp.V_dep*
+  interacumuladorSerpentin.medium_dep.rho*interacumuladorSerpentin.medium_dep.cp
+  *interacumuladorSerpentin.T_dep;
+interacumuladorSerpentin.H_int = interacumuladorSerpentin.esp.V_int*
+  interacumuladorSerpentin.medium_int.rho*interacumuladorSerpentin.medium_int.cp
+  *interacumuladorSerpentin.T_int;
+interacumuladorSerpentin.flowPort_a_dep.H_flow = (if noEvent(interacumuladorSerpentin.flowPort_a_dep.m_flow
+   > 0) then interacumuladorSerpentin.flowPort_a_dep.m_flow*interacumuladorSerpentin.medium_dep.cp
+  *interacumuladorSerpentin.T_in_AF else 0);
+interacumuladorSerpentin.flowPort_b_dep.H_flow = (if noEvent(interacumuladorSerpentin.flowPort_b_dep.m_flow
+   < 0) then interacumuladorSerpentin.flowPort_b_dep.m_flow*interacumuladorSerpentin.medium_dep.cp
+  *interacumuladorSerpentin.T_out_ACS else 0);
+interacumuladorSerpentin.flowPort_a_int.H_flow = (if noEvent(interacumuladorSerpentin.flowPort_a_int.m_flow
+   > 0) then interacumuladorSerpentin.flowPort_a_int.m_flow*interacumuladorSerpentin.medium_int.cp
+  *interacumuladorSerpentin.T_in_int else 0);
+interacumuladorSerpentin.flowPort_b_int.H_flow = (if noEvent(interacumuladorSerpentin.flowPort_b_int.m_flow
+   < 0) then interacumuladorSerpentin.flowPort_b_int.m_flow*interacumuladorSerpentin.medium_int.cp
+  *interacumuladorSerpentin.T_out_int else 0);
+interacumuladorSerpentin.DeltaT = 0.5*(interacumuladorSerpentin.T_in_int+
+  interacumuladorSerpentin.T_int)-interacumuladorSerpentin.T_dep;
+interacumuladorSerpentin.Q_int_dep = interacumuladorSerpentin.esp.U_int*
+  interacumuladorSerpentin.esp.A_int*interacumuladorSerpentin.DeltaT;
+ambient.flowPort.H_flow+prescribedVolumeFlow.flowPort_a.H_flow = 0;
+prescribedVolumeFlow.flowPort_a.h = ambient.flowPort.h;
+ambient.flowPort.m_flow+prescribedVolumeFlow.flowPort_a.m_flow = 0;
+assert(abs(prescribedVolumeFlow.flowPort_a.medium.cp-ambient.flowPort.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_a.medium.cv-ambient.flowPort.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_a.medium.lamda-ambient.flowPort.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_a.medium.nue-ambient.flowPort.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_a.medium.rho-ambient.flowPort.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+prescribedVolumeFlow.flowPort_a.p = ambient.flowPort.p;
+ambient1.flowPort.H_flow+interacumuladorSerpentin.flowPort_b_dep.H_flow = 0;
+interacumuladorSerpentin.flowPort_b_dep.h = ambient1.flowPort.h;
+ambient1.flowPort.m_flow+interacumuladorSerpentin.flowPort_b_dep.m_flow = 0;
+assert(abs(interacumuladorSerpentin.flowPort_b_dep.medium.cp-ambient1.flowPort.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_dep.medium.cv-ambient1.flowPort.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_dep.medium.lamda-ambient1.flowPort.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_dep.medium.nue-ambient1.flowPort.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_dep.medium.rho-ambient1.flowPort.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+interacumuladorSerpentin.flowPort_b_dep.p = ambient1.flowPort.p;
+ambient3.flowPort.H_flow+interacumuladorSerpentin.flowPort_b_int.H_flow = 0;
+interacumuladorSerpentin.flowPort_b_int.h = ambient3.flowPort.h;
+ambient3.flowPort.m_flow+interacumuladorSerpentin.flowPort_b_int.m_flow = 0;
+assert(abs(interacumuladorSerpentin.flowPort_b_int.medium.cp-ambient3.flowPort.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_int.medium.cv-ambient3.flowPort.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_int.medium.lamda-ambient3.flowPort.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_int.medium.nue-ambient3.flowPort.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(interacumuladorSerpentin.flowPort_b_int.medium.rho-ambient3.flowPort.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+interacumuladorSerpentin.flowPort_b_int.p = ambient3.flowPort.p;
+prescribedAmbient.p_Ambient = const.y;
+interacumuladorSerpentin.flowPort_a_dep.H_flow+prescribedVolumeFlow.flowPort_b.H_flow
+   = 0;
+prescribedVolumeFlow.flowPort_b.h = interacumuladorSerpentin.flowPort_a_dep.h;
+interacumuladorSerpentin.flowPort_a_dep.m_flow+prescribedVolumeFlow.flowPort_b.m_flow
+   = 0;
+assert(abs(prescribedVolumeFlow.flowPort_b.medium.cp-interacumuladorSerpentin.flowPort_a_dep.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_b.medium.cv-interacumuladorSerpentin.flowPort_a_dep.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_b.medium.lamda-interacumuladorSerpentin.flowPort_a_dep.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_b.medium.nue-interacumuladorSerpentin.flowPort_a_dep.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow.flowPort_b.medium.rho-interacumuladorSerpentin.flowPort_a_dep.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+prescribedVolumeFlow.flowPort_b.p = interacumuladorSerpentin.flowPort_a_dep.p;
+interacumuladorSerpentin.flowPort_a_int.H_flow+prescribedVolumeFlow1.flowPort_b.H_flow
+   = 0;
+prescribedVolumeFlow1.flowPort_b.h = interacumuladorSerpentin.flowPort_a_int.h;
+interacumuladorSerpentin.flowPort_a_int.m_flow+prescribedVolumeFlow1.flowPort_b.m_flow
+   = 0;
+assert(abs(prescribedVolumeFlow1.flowPort_b.medium.cp-interacumuladorSerpentin.flowPort_a_int.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_b.medium.cv-interacumuladorSerpentin.flowPort_a_int.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_b.medium.lamda-interacumuladorSerpentin.flowPort_a_int.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_b.medium.nue-interacumuladorSerpentin.flowPort_a_int.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_b.medium.rho-interacumuladorSerpentin.flowPort_a_int.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+prescribedVolumeFlow1.flowPort_b.p = interacumuladorSerpentin.flowPort_a_int.p;
+ramp.y = prescribedAmbient.T_Ambient;
+prescribedAmbient.flowPort.H_flow+prescribedVolumeFlow1.flowPort_a.H_flow = 0;
+prescribedVolumeFlow1.flowPort_a.h = prescribedAmbient.flowPort.h;
+prescribedAmbient.flowPort.m_flow+prescribedVolumeFlow1.flowPort_a.m_flow = 0;
+assert(abs(prescribedVolumeFlow1.flowPort_a.medium.cp-prescribedAmbient.flowPort.medium.cp)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_a.medium.cv-prescribedAmbient.flowPort.medium.cv)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_a.medium.lamda-prescribedAmbient.flowPort.medium.lamda)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_a.medium.nue-prescribedAmbient.flowPort.medium.nue)
+   <= 0, "Parameters in connected connectors must be equal");
+assert(abs(prescribedVolumeFlow1.flowPort_a.medium.rho-prescribedAmbient.flowPort.medium.rho)
+   <= 0, "Parameters in connected connectors must be equal");
+prescribedVolumeFlow1.flowPort_a.p = prescribedAmbient.flowPort.p;
+trapezoid.y = prescribedVolumeFlow.VolumeFlow;
+trapezoid1.y = prescribedVolumeFlow1.VolumeFlow;
+
+initial equation
+  interacumuladorSerpentin.T_int = interacumuladorSerpentin.T0;
+  interacumuladorSerpentin.T_in_int = interacumuladorSerpentin.T_int;
+  interacumuladorSerpentin.T_dep = interacumuladorSerpentin.T0;
+  interacumuladorSerpentin.T_in_AF = interacumuladorSerpentin.T_dep;
+
+end Soltermica.Acumuladores.Interacumuladores.Verificacion_02;
+DAE having 103 scalar unknowns and 103 scalar equations.

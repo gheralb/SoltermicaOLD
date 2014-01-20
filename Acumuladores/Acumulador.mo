@@ -40,6 +40,10 @@ model Acumulador "Modelo simplificado acumulador sin aportación de energía"
   parameter Modelica.SIunits.Temp_K T0;
   
 equation 
+  //Temperaturas
+  T_in_AF=if noEvent(flowPort_a.m_flow>0) then flowPort_a.h/medium_dep.cp else T_dep;
+  T_out_ACS=T_dep;
+  
   //Caidas de presion
   flowPort_a.p-flowPort_b.p = -dp_dep_nom*(flowPort_a.m_flow^2) / (m_flow_dep_nom^2);
   
@@ -52,22 +56,17 @@ equation
   
   //Entalpias
   H_dep=V_dep*medium_dep.rho*medium_dep.cp*T_dep;
-  flowPort_a.H_flow=flowPort_a.m_flow*medium_dep.cp*T_in_AF;
-  flowPort_b.H_flow=flowPort_b.m_flow*medium_dep.cp*T_out_ACS;
-  //flowPort_a.H_flow=if flowPort_a.m_flow >0 then flowPort_a.m_flow*medium_dep.cp*T_in_AF else 0;
-  //flowPort_b.H_flow=if flowPort_b.m_flow <0 then flowPort_b.m_flow*medium_dep.cp*T_out_ACS else 0;
+  //flowPort_a.H_flow=flowPort_a.m_flow*medium_dep.cp*T_in_AF;
+  //flowPort_b.H_flow=flowPort_b.m_flow*medium_dep.cp*T_out_ACS;
+  flowPort_a.H_flow=if noEvent(flowPort_a.m_flow >0) then flowPort_a.m_flow*medium_dep.cp*T_in_AF else 0;
+  flowPort_b.H_flow=if noEvent(flowPort_b.m_flow <0) then flowPort_b.m_flow*medium_dep.cp*T_out_ACS else 0;
   //flowPort_a.H_flow=flowPort_a.m_flow*flowPort_a.h;
   //flowPort_b.H_flow=flowPort_b.m_flow*flowPort_b.h;
   //flowPort_a.H_flow=if flowPort_a.m_flow >0 then flowPort_a.m_flow*flowPort_a.h else 0;
   //flowPort_b.H_flow=if flowPort_b.m_flow <0 then flowPort_b.m_flow*(-flowPort_b.h) else 0;
-  //flowPort_b.H_flow=flowPort_b.m_flow*medium_dep.cp*T_out_ACS;
-  
-  //Temperaturas
-  T_in_AF=flowPort_a.h/medium_dep.cp;
-  T_out_ACS=T_dep;
   
 initial equation 
-  H_dep=V_dep*medium_dep.rho*medium_dep.cp*T0;
+  T_dep=T0;
   T_in_AF=T_dep;
   
 end Acumulador;

@@ -12,7 +12,7 @@ model Verificacion_02
       p_Ambient=401300,
       T_Ambient=283.15) 
     annotation (extent=[20,-42; 40,-22]);
-  Modelica.Blocks.Sources.Constant caudal_1(k=0.00055556) 
+  Modelica.Blocks.Sources.Constant caudal_1(k=0.00055555556) 
     "Caudal masico consigna primario"    annotation (extent=[-20,70; -40,90]);
   Modelica.Thermal.FluidHeatFlow.Sources.Ambient ambiente_b_1(
         p_Ambient=101300,
@@ -41,9 +41,9 @@ model Verificacion_02
     annotation (extent=[-20,-90; -40,-70]);
     Soltermica.Acumuladores.Interacumuladores.InteracumuladorSerpentin 
     interacumulador_1(
-    medium_int=Modelica.Thermal.FluidHeatFlow.Media.Water(), 
-    medium_dep=Modelica.Thermal.FluidHeatFlow.Media.Water(), 
-    esp=CatalogoEquipos.HEATSUN_ISSWX200(), 
+    medium_int=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+    medium_dep=Modelica.Thermal.FluidHeatFlow.Media.Water(),
+    esp=CatalogoEquipos.HEATSUN_ISSWX200(),
     T0=283.15) 
       annotation (extent=[-20,0; 0,20]);
     Modelica.Thermal.FluidHeatFlow.Components.Valve valve(

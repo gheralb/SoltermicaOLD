@@ -19,8 +19,6 @@ model Verificacion_02
     T_Ambient=293.15,
       medium=Soltermica.Media.Propilenglicol_40()) 
                    annotation (extent=[20,0; 40,20]);
-  Modelica.Blocks.Sources.Constant const(k=1000) 
-    annotation (extent=[-80,50; -60,70]);
   Modelica.Blocks.Sources.Constant const1(k=303.15) 
     annotation (extent=[-80,8; -60,28]);
     Soltermica.ColectoresSolares.ColectorSolar colectorSolar_01_1(
@@ -28,16 +26,16 @@ model Verificacion_02
           Soltermica.Media.Propilenglicol_40(), esp=
           CatalogoEquipos.BAXIROCA_PS_2_0()) 
       annotation (extent=[-20,0; 0,20]);
+  Modelica.Blocks.Sources.Trapezoid trapezoid(
+    amplitude=1000, 
+    rising=18000, 
+    width=7200, 
+    falling=18000, 
+    period=86400, 
+    startTime=28800) annotation (extent=[-80,50; -60,70]);
 equation 
   connect(ambient.flowPort, constantVolumeFlow.flowPort_a) 
     annotation (points=[-50,-58; -50,-40], style(color=1, rgbcolor={255,0,0}));
-  connect(const.y, prescribedHeatFlow.Q_flow) annotation (points=[-59,60; -40,
-        60], style(
-      color=74,
-      rgbcolor={0,0,127},
-      fillColor=10,
-      rgbfillColor={135,135,135},
-      fillPattern=1));
     connect(prescribedHeatFlow.port, colectorSolar_01_1.port_a) annotation (
        points=[-20,60; -10,60; -10,20], style(color=42, rgbcolor={191,0,0}));
     connect(colectorSolar_01_1.flowPort_b, ambient1.flowPort) annotation (
@@ -47,4 +45,6 @@ equation
     connect(constantVolumeFlow.flowPort_b, colectorSolar_01_1.flowPort_a) 
       annotation (points=[-50,-20; -50,10; -20,10], style(color=1, rgbcolor=
            {255,0,0}));
+  connect(trapezoid.y, prescribedHeatFlow.Q_flow)
+    annotation (points=[-59,60; -40,60], style(color=74, rgbcolor={0,0,127}));
 end Verificacion_02;

@@ -1,0 +1,73 @@
+model Soltermica.Acumuladores.Acumulador
+parameter Real flowPort_a.medium.rho(unit = "kg/m3", min = 0.0) "density";
+parameter Real flowPort_a.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+parameter Real flowPort_a.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+parameter Real flowPort_a.medium.lamda(unit = "W/(m.K)") "thermal conductivity";
+parameter Real flowPort_a.medium.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+parameter Real flowPort_b.medium.rho(unit = "kg/m3", min = 0.0) "density";
+parameter Real flowPort_b.medium.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+parameter Real flowPort_b.medium.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+parameter Real flowPort_b.medium.lamda(unit = "W/(m.K)") "thermal conductivity";
+parameter Real flowPort_b.medium.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+parameter Real medium_dep.rho(unit = "kg/m3", min = 0.0) "density";
+parameter Real medium_dep.cp(unit = "J/(kg.K)") "specific heat capacity at constant pressure";
+parameter Real medium_dep.cv(unit = "J/(kg.K)") "specific heat capacity at constant volume";
+parameter Real medium_dep.lamda(unit = "W/(m.K)") "thermal conductivity";
+parameter Real medium_dep.nue(unit = "m2/s", min = 0.0) "kinematic viscosity";
+parameter Real m_flow_dep_nom(unit = "kg/s") = 1;
+parameter Real dp_dep_nom(unit = "Pa") = 1;
+parameter Real V_dep(unit = "m3") = 1;
+parameter Real T0(unit = "K", min = 0.0);
+
+Real flowPort_a.p(unit = "Pa");
+Real flowPort_a.m_flow(unit = "kg/s");
+Real flowPort_a.h(unit = "J/kg");
+Real flowPort_a.H_flow(unit = "W");
+Real flowPort_b.p(unit = "Pa");
+Real flowPort_b.m_flow(unit = "kg/s");
+Real flowPort_b.h(unit = "J/kg");
+Real flowPort_b.H_flow(unit = "W");
+Real H_dep(unit = "J");
+Real T_dep(unit = "K", min = 0.0);
+Real T_in_AF(unit = "K", min = 0.0);
+Real T_out_ACS(unit = "K", min = 0.0);
+Real Q_int(unit = "W");
+
+function Modelica.Thermal.FluidHeatFlow.Media.Medium
+  input Real rho := 1 "density";
+  input Real cp := 1 "specific heat capacity at constant pressure";
+  input Real cv := 1 "specific heat capacity at constant volume";
+  input Real lamda := 1 "thermal conductivity";
+  input Real nue := 1 "kinematic viscosity";
+  output Modelica.Thermal.FluidHeatFlow.Media.Medium _out := Modelica.Thermal.FluidHeatFlow.Media.Medium
+    (
+    rho = rho, 
+    cp = cp, 
+    cv = cv, 
+    lamda = lamda, 
+    nue = nue
+  );
+
+algorithm 
+end Modelica.Thermal.FluidHeatFlow.Media.Medium;
+equation
+T_in_AF = (if noEvent(flowPort_a.m_flow > 0) then flowPort_a.h/medium_dep.cp
+   else T_dep);
+T_out_ACS = T_dep;
+flowPort_a.p-flowPort_b.p =  -dp_dep_nom*flowPort_a.m_flow^2/m_flow_dep_nom^2;
+flowPort_a.m_flow+flowPort_b.m_flow = 0;
+flowPort_a.H_flow+flowPort_b.H_flow+Q_int = V_dep*medium_dep.rho*medium_dep.cp*
+  der(T_dep);
+Q_int = 0;
+H_dep = V_dep*medium_dep.rho*medium_dep.cp*T_dep;
+flowPort_a.H_flow = (if noEvent(flowPort_a.m_flow > 0) then flowPort_a.m_flow*
+  medium_dep.cp*T_in_AF else 0);
+flowPort_b.H_flow = (if noEvent(flowPort_b.m_flow < 0) then flowPort_b.m_flow*
+  medium_dep.cp*T_out_ACS else 0);
+
+initial equation
+  T_dep = T0;
+  T_in_AF = T_dep;
+
+end Soltermica.Acumuladores.Acumulador;
+DAE having 9 scalar unknowns and 9 scalar equations.

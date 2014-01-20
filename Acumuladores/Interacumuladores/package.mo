@@ -1,5 +1,3 @@
 package Interacumuladores 
 
-
-
 end Interacumuladores;
