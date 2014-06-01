@@ -42,7 +42,7 @@ parameter Modelica.SIunits.TemperatureDifference DeltaT_off;
 parameter Modelica.SIunits.CelsiusTemperature Temp_Acum;
 //parameter 
   Modelica.Blocks.Logical.And and1 annotation (extent=[14,0; 34,20]);
-  Modelica.Blocks.Logical.LessThreshold TempAcu(threshold=Temp_Acum)
+  Modelica.Blocks.Logical.LessThreshold TempAcu(threshold=Temp_Acum) 
     annotation (extent=[-40,-70; -20,-50]);
 equation 
   connect(triggeredTrapezoid.y, y) 
@@ -52,13 +52,13 @@ equation
       style(color=74, rgbcolor={0,0,127}));
   connect(add.u2, TempDep) annotation (points=[-62,4; -70,4; -70,0; -100,0],
               style(color=74, rgbcolor={0,0,127}));
-  connect(add.y, hysteresis.u)
+  connect(add.y, hysteresis.u) 
     annotation (points=[-39,10; -24,10], style(color=74, rgbcolor={0,0,127}));
-  connect(hysteresis.y, and1.u1)
+  connect(hysteresis.y, and1.u1) 
     annotation (points=[-1,10; 12,10], style(color=5, rgbcolor={255,0,255}));
-  connect(and1.y, triggeredTrapezoid.u)
+  connect(and1.y, triggeredTrapezoid.u) 
     annotation (points=[35,10; 46,10], style(color=5, rgbcolor={255,0,255}));
-  connect(TempAcu.y, and1.u2) annotation (points=[-19,-60; 8,-60; 8,2; 12,2], 
+  connect(TempAcu.y, and1.u2) annotation (points=[-19,-60; 8,-60; 8,2; 12,2],
       style(color=5, rgbcolor={255,0,255}));
   connect(TempDep, TempAcu.u) annotation (points=[-100,0; -70,0; -70,-60; -42,
         -60], style(color=74, rgbcolor={0,0,127}));

@@ -1,4 +1,4 @@
-model ColectorSolar "Implementación colector solar térmico 0.1." 
+model ColectorSolar 
   
   annotation (uses(Modelica(version="2.2.1")), DymolaStoredErrors,
     Diagram,
@@ -19,94 +19,94 @@ model ColectorSolar "Implementación colector solar térmico 0.1."
           fillColor=10,
           rgbfillColor={135,135,135},
           fillPattern=1))));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a 
-    annotation (extent=[-10,90; 10,110]);
-  Modelica.Blocks.Interfaces.RealInput u annotation (extent=[-120,60; -80,100]);
+  Modelica.Blocks.Interfaces.RealInput senalIrradiacion 
+                                         annotation (extent=[-128,60; -88,100]);
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=
         medium) 
-    annotation (extent=[-110,-10; -90,10]);
+    annotation (extent=[-110,-90; -90,-70]);
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=
         medium) 
-    annotation (extent=[90,-10; 110,10]);
-  //Variables
-  Real Q_flow_solar;//Ganancia solar
-  Real Q_flow_perdidas;//Perdidas de calor
-  Real Q_flow_util;//Ganancia de calor util
-  Real Rend_captador;//Rendimiento instantáneo del captador. Mirar como se define de 0 a 1
-  Modelica.SIunits.Energy H;//Entalpia del colector
-  Modelica.SIunits.Temp_K T_col(start=T0);//Temperatura del captador a efectos de cálculo. Puede definirse inicialmente como la media
-  Modelica.SIunits.Pressure dp;//Caída de presión en el captador
+    annotation (extent=[90,70; 110,90]);
   
-  //Variables auxiliares
-  Modelica.SIunits.Temp_K T_amb;
-  Modelica.SIunits.Temp_K T_in;
-  Modelica.SIunits.Temp_K T_out;
-  
-  //Parametros
-  //Medio circulante captador
   parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium();
   
-  /*//Hidraulicos
-  parameter Modelica.SIunits.MassFlowRate m_flow_nom=1;
-  parameter Modelica.SIunits.Pressure dp_nom=1;
+  parameter ColectoresSolares.CatalogoEquipos.Especificaciones espec=ColectoresSolares.CatalogoEquipos.Especificaciones();
   
-  //Propios del captador
- 
-  parameter Real Rend_optico=1;
-  parameter Real Coef_perdidas_1=1;
-  parameter Real Coef_perdidas_2=1;
-  parameter Modelica.SIunits.Volume V_col=1;*/
-  
-  parameter ColectoresSolares.Especificaciones esp=Especificaciones();
-  
-  parameter Real T0=293.15;//Temperatura inicial del captador
+  parameter Real T_ini;
   
   Modelica.Blocks.Interfaces.RealOutput SenTemp 
-    annotation (extent=[96,70; 116,90]);
+    annotation (extent=[96,30; 116,50]);
+  Modelica.Thermal.HeatTransfer.HeatCapacitor masaTermica(final C=espec.CapacidadTermicaVacio) 
+    annotation (extent=[20,20; 40,40]);
+  Modelica.Thermal.HeatTransfer.PrescribedHeatFlow gananciaSolar 
+    annotation (extent=[-14,64; 6,44], rotation=90);
+  Modelica.Thermal.HeatTransfer.PrescribedHeatFlow perdidasAmbiente 
+    annotation (extent=[-40,34; -20,54], rotation=-90);
+  Modelica.Blocks.Interfaces.RealInput senalTemperatura 
+                                         annotation (extent=[-128,-20; -88,20]);
+  Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector control_Colector(
+                                                  final espec=espec) 
+    annotation (extent=[-64,60; -44,80]);
+  Modelica.Thermal.HeatTransfer.TemperatureSensor temperatureSensor 
+    annotation (extent=[-20,-48; 0,-68], rotation=90);
+  Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico 
+    volumenControlUnico1(
+    final medium=medium,
+    final Volumen=espec.V_col,
+    final dP_nom=espec.dp_nom,
+    final cV_nom=espec.V_flow_nom,
+    final T_ini=T_ini) annotation (extent=[-20,-36; 0,-16]);
 equation 
-  //Temperaturas
-  H=(esp.V_col*medium.rho*medium.cp+esp.CapacidadTermicaVacio)*T_col;
-  T_in=flowPort_a.h/medium.cp;
-  T_out=T_col;
-  flowPort_a.H_flow=if flowPort_a.m_flow >0 then flowPort_a.m_flow*medium.cp*T_in else 0;
-  flowPort_b.H_flow=if flowPort_b.m_flow <0 then flowPort_b.m_flow*medium.cp*T_out else 0;
-  T_amb=u;
-  SenTemp=T_col;
   
-  //Temperatura conexión puerto calor
-  port_a.T=T_col;
-  
-  //Caudal másico por el captador. Balance másico
-  flowPort_a.m_flow+flowPort_b.m_flow=0;
-  
-  //Caída de presión en el captador
-  dp=flowPort_b.p-flowPort_a.p;
-  dp = if flowPort_a.m_flow >0 then - esp.dp_nom * (flowPort_a.m_flow^2) / (esp.m_flow_nom^2) else 0;
-  
-  //Modelo según método Steady State
-  //Ganancia Solar
-  Q_flow_solar=esp.A_apertura*port_a.Q_flow*esp.Rend_optico*esp.IAM_50;
-  
-  //Perdidas calor
-  Q_flow_perdidas=-esp.A_apertura*(esp.Coef_perdidas_1+esp.Coef_perdidas_2*(T_col-T_amb))*(T_col-T_amb);
-  //U_L=esp.Coef_perdidas_1+esp.Coef_perdidas_2*(T_col-T_amb);//Coeficiente global de intercambio de calor con el exterior
-  
-  //Balance de energia
-  Q_flow_util=Q_flow_solar+Q_flow_perdidas;
-  
-  //Calentamiento del captador
-  //(esp.CapacidaTermicaVacio+(esp.V_col*medium.rho*medium.cp))*der(T_col)+flowPort_a.H_flow+flowPort_b.H_flow=Q_flow_util;
-  der(H)=Q_flow_util+flowPort_a.H_flow+flowPort_b.H_flow;
-  
-  //Rendimiento del captador
-  Rend_captador=if noEvent(port_a.Q_flow>0 and Q_flow_util>0) then  esp.Rend_optico-esp.Coef_perdidas_1*((T_col-T_amb)/port_a.Q_flow)-esp.Coef_perdidas_2*((T_col-T_amb)*(T_col-T_amb))/port_a.Q_flow else 0;
-  
-  //Rendimiento del captador
-  //port_a.Q_flow*esp.A_apertura*Rend_captador=port_a.Q_flow*esp.A_apertura*esp.Rend_optico-esp.Coef_perdidas_1*(T_col-T_amb)-esp.Coef_perdidas_2*((T_col-T_amb)^2);
-  
-  //Balance energético. Energía entrante debe ser la misma que la que la sale y la que se acumula
-  //der(H)=port_a.Q_flow*Rend_captador+flowPort_a.H_flow+flowPort_b.H_flow;
-initial equation 
-T_col=T0;
-  
+  connect(control_Colector.ganancias, gananciaSolar.Q_flow) annotation (points=[-43.4,74;
+        -4,74; -4,64],                     style(color=74, rgbcolor={0,0,127}));
+  connect(control_Colector.perdidas, perdidasAmbiente.Q_flow) annotation (
+      points=[-43.4,66; -30,66; -30,54],         style(color=74, rgbcolor={0,0,
+          127}));
+  connect(senalTemperatura, control_Colector.senalTemperaturaAmbiente) 
+    annotation (points=[-108,0; -84,0; -84,70; -64.8,70], style(color=74,
+        rgbcolor={0,0,127}));
+  connect(senalIrradiacion, control_Colector.senalIrradiacion) annotation (
+      points=[-108,80; -102,80; -102,76; -64.8,76], style(color=74, rgbcolor={0,
+          0,127}));
+  connect(temperatureSensor.T, SenTemp) annotation (points=[-10,-68; -10,-76;
+        80,-76; 80,40; 106,40], style(
+      color=74,
+      rgbcolor={0,0,127},
+      gradient=2));
+  connect(control_Colector.senalTemperaturaCaptador, temperatureSensor.T) 
+    annotation (points=[-64.6,64; -76,64; -76,-76; -10,-76; -10,-68], style(
+      color=74,
+      rgbcolor={0,0,127},
+      gradient=2));
+  connect(volumenControlUnico1.puertoExt, temperatureSensor.port) annotation (
+      points=[-10,-36; -10,-48], style(
+      color=42,
+      rgbcolor={191,0,0},
+      gradient=2));
+  connect(flowPort_a, volumenControlUnico1.flowPort_a) annotation (points=[-100,
+        -80; -60,-80; -60,-26; -20,-26], style(
+      color=1,
+      rgbcolor={255,0,0},
+      gradient=2));
+  connect(volumenControlUnico1.flowPort_b, flowPort_b) annotation (points=[0,
+        -26; 50,-26; 50,80; 100,80], style(
+      color=1,
+      rgbcolor={255,0,0},
+      gradient=2));
+  connect(masaTermica.port, volumenControlUnico1.puertoInt) annotation (points=
+        [30,20; -10,20; -10,-16], style(
+      color=42,
+      rgbcolor={191,0,0},
+      gradient=2));
+  connect(gananciaSolar.port, volumenControlUnico1.puertoInt) annotation (
+      points=[-4,44; -4,20; -10,20; -10,-16], style(
+      color=42,
+      rgbcolor={191,0,0},
+      gradient=2));
+  connect(perdidasAmbiente.port, volumenControlUnico1.puertoInt) annotation (
+      points=[-30,34; -30,20; -10,20; -10,-16], style(
+      color=42,
+      rgbcolor={191,0,0},
+      gradient=2));
 end ColectorSolar;

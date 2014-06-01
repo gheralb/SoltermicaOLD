@@ -1,28 +1,26 @@
 model IntercambiadorPlacas 
-  "Implementación intercambiador de placas 0.3. Posibilidad de escoger dos medios diferentes para cada circuito." 
+  "Implementación del intercambiador con estructura regular (diversos volumenes de control)" 
   
-  annotation (
-    uses(Modelica(version="2.2.1")),
-    Diagram,
+  annotation (uses(Modelica(version="2.2.1")), Diagram,
     Icon(
       Rectangle(extent=[-60,80; 60,-80], style(
           color=0,
           rgbcolor={0,0,0},
-          thickness=2,
-          fillColor=9,
-          rgbfillColor={175,175,175})),
-      Line(points=[-100,60; 40,60; -40,40; 40,20; -40,0; 40,-20; -40,-40; 40,
-                -60; -100,-60],
-                            style(
-          color=0,
-          rgbcolor={0,0,0},
-          fillColor=9,
-          rgbfillColor={175,175,175})),
-      Line(points=[100,-60; -40,-60; 40,-40; -40,-20; 40,0; -40,20; 40,40;
-                -40,60; 100,60],
-                         style(color=0, rgbcolor={0,0,0}))));
+          gradient=3,
+          fillColor=30,
+          rgbfillColor={215,215,215})),
+      Line(points=[-100,60; 40,60; -40,30; 40,0; -40,-30; 40,-60; -100,-60],
+          style(
+          color=1,
+          rgbcolor={255,0,0},
+          gradient=3)),
+      Line(points=[100,-60; -38,-60; 40,-30; -40,0; 40,30; -40,60; 100,60; 100,
+            62], style(
+          color=69,
+          rgbcolor={0,128,255},
+          gradient=3))));
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b_1(final 
-      medium=medium_1) 
+      medium = medium_1) 
     annotation (extent=[-110,-70; -90,-50]);
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a_2(final 
       medium=medium_2) 
@@ -33,82 +31,86 @@ model IntercambiadorPlacas
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a_1(final 
       medium=medium_1) 
                      annotation (extent=[-110,50; -90,70]);
-  Modelica.SIunits.Energy H_1;
-  Modelica.SIunits.Energy H_2;
-  Modelica.SIunits.Temp_K T_in_1;
-  Modelica.SIunits.Temp_K T_out_1;
-  Modelica.SIunits.Temp_K T_1;
-  Modelica.SIunits.Temp_K T_in_2;
-  Modelica.SIunits.Temp_K T_out_2;
-  Modelica.SIunits.Temp_K T_2;
-  Modelica.SIunits.EnergyFlowRate Q_int_1;
-  Modelica.SIunits.EnergyFlowRate Q_int_2;
-  Modelica.SIunits.TemperatureDifference DeltaT;
-  //Modelica.SIunits.TemperatureDifference LMTD;
-  //Modelica.SIunits.TemperatureDifference DeltaT_1;
-  //Modelica.SIunits.TemperatureDifference DeltaT_2;
+  Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D 
+    volumenesControl1D_1(
+    final n=n,
+    final volumen=espec.V_1,
+    final longitud=espec.L_int,
+    final dp_nom=espec.dp_nom_1,
+    final V_flow_nom=espec.V_flow_nom_1,
+    final medium=medium_1,
+    T_ini=T_ini) 
+    annotation (extent=[-40,-10; -60,10], rotation=90);
+  Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D 
+    volumenesControl1D_2(
+    final n=n,
+    final volumen=espec.V_2,
+    final longitud=espec.L_int,
+    final dp_nom=espec.dp_nom_2,
+    final V_flow_nom=espec.V_flow_nom_2,
+    final medium=medium_2,
+    T_ini=T_ini) 
+    annotation (extent=[40,-10; 60,10], rotation=90);
+  Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D 
+    transmisionCalor1D[                               n](
+    each U=espec.U_int,
+    each A=(espec.S_int/n)) 
+    annotation (extent=[-10,-10; 10,10]);
+  Modelica.SIunits.Power potTotInter;
   
-  //Parametros
-  //Medios circulantes por el intercambiador
+  parameter Integer n=1;
   parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium_1=Modelica.Thermal.FluidHeatFlow.Media.Medium();
   parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium_2=Modelica.Thermal.FluidHeatFlow.Media.Medium();
-  //parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium();
-  /*//Hidraulicos
-  parameter Modelica.SIunits.MassFlowRate m_flow_nom_1=1;
-  parameter Modelica.SIunits.Pressure dp_nom_1=1;
-  parameter Modelica.SIunits.MassFlowRate m_flow_nom_2=1;
-  parameter Modelica.SIunits.Pressure dp_nom_2=1;
-  //Propios del intercambiador
-  parameter Modelica.SIunits.Volume V_1=1;//Volumen de la seccion 1 del intercambiador
-  parameter Modelica.SIunits.Volume V_2=1;//Volumen de la sección 2 del intercambiador
-  parameter Real U_int=1;//Coeficiente global de intercambio
-  parameter Real A_int=1;//Área de intercambio*/
-  parameter Soltermica.Intercambiadores.Placas.Especificaciones esp =                 Soltermica.Intercambiadores.Placas.Especificaciones();
-  //Parametros de inicializacion
-  parameter Real T0_1=293.15;
-  parameter Real T0_2=293.15;
+  
+  parameter Soltermica.Intercambiadores.Placas.CatalogoEquipos.Especificaciones
+    espec = Soltermica.Intercambiadores.Placas.CatalogoEquipos.Especificaciones();
+  
+  parameter Modelica.SIunits.Temp_K T_ini;
+  
 equation 
-  
-//Caidas de presion
-flowPort_a_1.p-flowPort_b_1.p = -esp.dp_nom_1 * (flowPort_a_1.m_flow^2) / ((esp.V_flow_nom_1*medium_1.rho)^2);
-flowPort_a_2.p-flowPort_b_2.p = -esp.dp_nom_2 * (flowPort_a_2.m_flow^2) / ((esp.V_flow_nom_2*medium_2.rho)^2);
-  
-//Balance de materia
-flowPort_a_1.m_flow+flowPort_b_1.m_flow=0;
-flowPort_a_2.m_flow+flowPort_b_2.m_flow=0;
-  
-//Balance de energia en cada volumen de control
-flowPort_a_1.H_flow+flowPort_b_1.H_flow+Q_int_1=der(H_1);
-flowPort_a_2.H_flow+flowPort_b_2.H_flow+Q_int_2=der(H_2);
-Q_int_1+Q_int_2=0;
-  
-//Entalpías
-H_1=esp.V_1*medium_1.rho*medium_1.cp*T_1;
-H_2=esp.V_2*medium_2.rho*medium_2.cp*T_2;
-  
-//Temperaturas
-flowPort_a_1.H_flow=flowPort_a_1.m_flow*medium_1.cp*T_in_1;
-flowPort_b_1.H_flow=flowPort_b_1.m_flow*medium_1.cp*T_out_1;
-flowPort_a_2.H_flow=flowPort_a_2.m_flow*medium_2.cp*T_in_2;
-flowPort_b_2.H_flow=flowPort_b_2.m_flow*medium_2.cp*T_out_2;
-T_in_1=flowPort_a_1.h/medium_1.cp;
-T_in_2=flowPort_a_2.h/medium_2.cp;
-T_out_1=T_1;
-T_out_2=T_2;
-  
-//Potencia intercambiada
-DeltaT=((T_in_1+T_1)/2)-((T_in_2+T_2)/2);
-Q_int_2=esp.U_int*esp.S_int*DeltaT;
-  
-/*DeltaT_1=if T_in_1>=T_out_2 then T_in_1-T_out_2 else 0;
-DeltaT_2=if T_out_1>=T_in_2 then T_out_1-T_in_2 else 0;
-Q_int_1=U_int*A_int*LMTD;
-LMTD = if (DeltaT_1*DeltaT_2>=0) and (DeltaT_1*DeltaT_2<=0) then (0.5*(DeltaT_1+DeltaT_2)) else 
-       if (abs(DeltaT_1-DeltaT_2)>0.05*max(abs(DeltaT_1),abs(DeltaT_2))) then (DeltaT_1-DeltaT_2)/Modelica.Math.log(DeltaT_1/DeltaT_2) else 
-       0.5*(DeltaT_1+DeltaT_2)+(1-sqrt(DeltaT_1-DeltaT_2)/(DeltaT_1*DeltaT_2)+(1+sqrt(DeltaT_1-DeltaT_2)/(DeltaT_1*DeltaT_2)/2/12));*/
-  
-initial equation 
-H_1=esp.V_1*medium_1.rho*medium_1.cp*T0_1;
-H_2=esp.V_2*medium_2.rho*medium_2.cp*T0_2;
-  
+//Definición de la potencia total intercambiada
+potTotInter=sum(transmisionCalor1D[i].port_a.Q_flow for i in 1:n);
+  connect(flowPort_a_1, volumenesControl1D_1.flowPort_b) annotation (points=[
+        -100,60; -50,60; -50,10], style(
+      color=1,
+      rgbcolor={255,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
+  connect(flowPort_b_1, volumenesControl1D_1.flowPort_a) annotation (points=[
+        -100,-60; -50,-60; -50,-10], style(
+      color=1,
+      rgbcolor={255,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
+  connect(flowPort_a_2, volumenesControl1D_2.flowPort_a) annotation (points=[
+        100,-60; 50,-60; 50,-10], style(
+      color=1,
+      rgbcolor={255,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
+  connect(volumenesControl1D_2.flowPort_b, flowPort_b_2) annotation (points=[50,
+        10; 50,60; 100,60], style(
+      color=1,
+      rgbcolor={255,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
+  connect(volumenesControl1D_1.puertoInt, transmisionCalor1D.port_a) 
+    annotation (points=[-40,6.12303e-016; -26,6.12303e-016; -26,0; -10,0],
+      style(
+      color=42,
+      rgbcolor={191,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
+  connect(transmisionCalor1D.port_b, volumenesControl1D_2.puertoInt) 
+    annotation (points=[10,0; 25,0; 25,6.12303e-016; 40,6.12303e-016], style(
+      color=42,
+      rgbcolor={191,0,0},
+      fillColor=1,
+      rgbfillColor={255,0,0},
+      fillPattern=1));
 end IntercambiadorPlacas;

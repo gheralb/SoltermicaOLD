@@ -1,5 +1,6 @@
 package Soltermica "Libreria de Modelica para la simulacion de sistemas solares termicos"
 
+
 annotation(uses(Modelica(version="2.2.1")));
 
 //Comentados las declaraciones de los package ya que no lo acepta Dymola 6.1
@@ -20,5 +21,8 @@ annotation(uses(Modelica(version="2.2.1")));
 
 //package Media "Definición de medios adicionales"
 //end Media;
+
+//package ClasesBasicas "Clases Basicas"
+//end ClasesBasicas;
 
 end Soltermica;

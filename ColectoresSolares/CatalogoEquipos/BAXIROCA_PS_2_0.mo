@@ -1,7 +1,7 @@
-record BAXIROCA_PS_2_0 = ColectoresSolares.Especificaciones (
+record BAXIROCA_PS_2_0 = ColectoresSolares.CatalogoEquipos.Especificaciones (
     V_col=0.00152,
-    m_flow_nom=(3.2/60)/1000,
-    dp_nom=2.9*100,
+    V_flow_nom=100*(1/3600)*(1/1000),
+    dp_nom=13*9.81,
     A_apertura=1.92,
     CapacidadTermicaVacio=13624,
     Rend_optico=0.76,

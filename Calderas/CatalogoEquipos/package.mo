@@ -1,0 +1,2 @@
+package CatalogoEquipos 
+end CatalogoEquipos;
