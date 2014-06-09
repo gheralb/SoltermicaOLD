@@ -1,5 +1,4 @@
-model IntercambiadorPlacas 
-  "Implementación del intercambiador con estructura regular (diversos volumenes de control)" 
+model IntercambiadorPlacas "Modelo de intercambiador de placas" 
   
   annotation (uses(Modelica(version="2.2.1")), Diagram,
     Icon(

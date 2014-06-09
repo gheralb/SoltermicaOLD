@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Acumuladores.Interacumuladores.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos de funcionamiento y verificacion de intercaumuladores&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores.Interacumuladores.Ejemplos"></A><A HREF="Soltermica_Acumuladores_Interacumuladores.html#Soltermica.Acumuladores.Interacumuladores"
+>Soltermica.Acumuladores.Interacumuladores</A>.Ejemplos</H2>
+<B>Ejemplos de funcionamiento y verificacion de intercaumuladores</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Acumuladores_Interacumuladores_Ejemplos.html#Soltermica.Acumuladores.Interacumuladores.Ejemplos.Validacion_Interacumulador_02_01"
+>Validacion_Interacumulador_02_01</A>
+</TD><TD>Modelo que muestra el comportamiento basico de un interacumulador</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_Interacumulador_02_01<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores.Interacumuladores.Ejemplos.Validacion_Interacumulador_02_01"></A><A HREF="Soltermica_Acumuladores_Interacumuladores_Ejemplos.html#Soltermica.Acumuladores.Interacumuladores.Ejemplos"
+>Soltermica.Acumuladores.Interacumuladores.Ejemplos</A>.Validacion_Interacumulador_02_01</H2>
+<B>Modelo que muestra el comportamiento basico de un interacumulador</B><p>
+<IMG SRC="Soltermica.Acumuladores.Interacumuladores.Ejemplos.Validacion_Interacumulador_02_01D.png" ALT="Soltermica.Acumuladores.Interacumuladores.Ejemplos.Validacion_Interacumulador_02_01">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_Interacumulador_02_01 <font color="darkgreen">
+  &quot;Modelo que muestra el comportamiento basico de un interacumulador&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> CaudalEntrada(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), m=0.1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ida(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=101300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(80));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> retorno(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> red(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid(
+    rising=10,
+    falling=10,
+    startTime=10,
+    offset=0,
+    amplitude=0.0001388,
+    width=3600,
+    period=10000);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="Soltermica_Acumuladores_Interacumuladores.html#Soltermica.Acumuladores.Interacumuladores.Interacumulador_Mezcla"
+>Soltermica.Acumuladores.Interacumuladores.Interacumulador_Mezcla</A> 
+    interacumulador_Mezcla(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=
+        <font color="red">Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.LAPESA_CV_80_M1S</font>(),
+    T_ini=293.15,
+    n=6,
+    n_int=3);
+  
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ida.flowPort,CaudalEntrada. flowPort_a);
+  <font color="red">connect</font>(trapezoid.y,CaudalEntrada. VolumeFlow);
+  <font color="red">connect</font>(CaudalEntrada.flowPort_b, interacumulador_Mezcla.flowPort_a1);
+  <font color="red">connect</font>(retorno.flowPort, interacumulador_Mezcla.flowPort_b1);
+  <font color="red">connect</font>(interacumulador_Mezcla.flowPort_a, red.flowPort);
+  <font color="red">connect</font>(interacumulador_Mezcla.flowPort_b, sumidero.flowPort);
+<font color="blue">end </font>Validacion_Interacumulador_02_01;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:07 2014.
+</address></BODY>
+</HTML>

@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Bombas.Circuladores</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Circuladores hidraulicos para sistemas cerrados&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Circuladores<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Bombas.Circuladores"></A><A HREF="Soltermica_Bombas.html#Soltermica.Bombas"
+>Soltermica.Bombas</A>.Circuladores</H2>
+<B>Circuladores hidraulicos para sistemas cerrados</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.Bombas.CirculadoresS.png" ALT="Soltermica.Bombas.Circuladores.CatalogoEquipos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Bombas_Circuladores_CatalogoEquipos.html#Soltermica.Bombas.Circuladores.CatalogoEquipos"
+>CatalogoEquipos</A>
+</TD><TD>Catalogo con las especificaciones de distintos circuladores</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Bombas.Circuladores.CirculadorS.png" ALT="Soltermica.Bombas.Circuladores.Circulador" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Bombas_Circuladores.html#Soltermica.Bombas.Circuladores.Circulador"
+>Circulador</A>
+</TD><TD>Modelo de circulador como fuente de un determinado caudal nominal</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Bombas.Circuladores.EjemplosS.png" ALT="Soltermica.Bombas.Circuladores.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Bombas_Circuladores_Ejemplos.html#Soltermica.Bombas.Circuladores.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos de funcionamiento de circuladores</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Circulador<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Bombas.Circuladores.CirculadorI.png" ALT="Soltermica.Bombas.Circuladores.Circulador" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Bombas.Circuladores.Circulador"></A><A HREF="Soltermica_Bombas_Circuladores.html#Soltermica.Bombas.Circuladores"
+>Soltermica.Bombas.Circuladores</A>.Circulador</H2>
+<B>Modelo de circulador como fuente de un determinado caudal nominal</B><p>
+<IMG SRC="Soltermica.Bombas.Circuladores.CirculadorD.png" ALT="Soltermica.Bombas.Circuladores.Circulador">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Modelo muy sencillo de circulador hidráulico. Basicamente es una fuente de caudal constante independiente de aspectos relacionados con el resto de la instalación.<br>
+En las especificaciones hay que indicar las características nominales (en condiciones que se consideren próximas a la que va a trabajar)<br>
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Fluido que bombea el circulador</TD></TR>
+<TR><TD><A HREF="Soltermica_Bombas_Circuladores_CatalogoEquipos.html#Soltermica.Bombas.Circuladores.CatalogoEquipos.Especificaciones"
+>Especificaciones</A></TD><TD>espec</TD><TD>Soltermica.Bombas.Circulador...</TD><TD>especificaciones del equipo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ini</TD><TD>293.15</TD><TD>Temperatura inicial del equipo [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>Aspiracion del circulador</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Descarga del circulador</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>u</TD><TD>Senal de encendido del circulador</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Circulador <font color="darkgreen">
+  &quot;Modelo de circulador como fuente de un determinado caudal nominal&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>T0=T_ini,
+    <font color="blue">final </font>m=espec.V_circ*medium.rho);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.TriggeredTrapezoid"
+>Modelica.Blocks.Logical.TriggeredTrapezoid</A> triggeredTrapezoid(
+    <font color="blue">final </font>amplitude=espec.V_flow_nom,
+    rising=5,
+    offset=0.00000001);
+  <A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador"
+>Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador</A> 
+    control_Circulador(<font color="blue">final </font>pot_elec_nom=espec.Pot_elec_nom);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Aspiracion del circulador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Descarga del circulador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> u <font color="darkgreen">&quot;Senal de encendido del circulador&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Fluido que bombea el circulador&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Soltermica_Bombas_Circuladores_CatalogoEquipos.html#Soltermica.Bombas.Circuladores.CatalogoEquipos.Especificaciones"
+>Soltermica.Bombas.Circuladores.CatalogoEquipos.Especificaciones</A> 
+    espec =<font color="red"> Soltermica.Bombas.Circuladores.CatalogoEquipos.Especificaciones</font>() <font color="darkgreen">
+    &quot;especificaciones del equipo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T_ini=293.15 <font color="darkgreen">
+    &quot;Temperatura inicial del equipo&quot;</font>;
+  
+<font color="blue">equation </font>
+  <font color="red">connect</font>(triggeredTrapezoid.y, prescribedVolumeFlow.VolumeFlow);
+  <font color="red">connect</font>(control_Circulador.y, triggeredTrapezoid.u);
+  <font color="red">connect</font>(flowPort_a, prescribedVolumeFlow.flowPort_a);
+  <font color="red">connect</font>(prescribedVolumeFlow.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(control_Circulador.SenalEntrada, u);
+<font color="blue">end </font>Circulador;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:07 2014.
+</address></BODY>
+</HTML>

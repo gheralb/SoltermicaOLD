@@ -19,12 +19,13 @@ model Validacion_Caldera_01
     falling=10,
     offset=0.0000001,
     startTime=10,
-    width=400,
-    period=3600) annotation (extent=[-74,-6; -54,14]);
+    width=3600,
+    period=7200) annotation (extent=[-74,-6; -54,14]);
   Caldera caldera(
     espec=Soltermica.Calderas.CatalogoEquipos.BAXI_PLATINIUM_24_24F(),
     medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
-    T_ini=293.15) annotation (extent=[0,0; 20,20]);
+    T_ini=293.15,
+    TempReg=50)   annotation (extent=[0,0; 20,20]);
 equation 
   connect(fuenteCaudal.flowPort, prescribedVolumeFlow.flowPort_a) annotation (
      points=[-62,-42; -54,-42; -54,-28; -44,-28], style(
@@ -40,7 +41,7 @@ equation
       fillColor=7,
       rgbfillColor={255,255,255},
       fillPattern=1));
-  connect(const.y, caldera.T_amb) annotation (points=[-37,50; -18,50; -18,16;
+  connect(const.y, caldera.T_amb) annotation (points=[-37,50; -18,50; -18,16; 
         -0.8,16], style(
       color=74,
       rgbcolor={0,0,127},

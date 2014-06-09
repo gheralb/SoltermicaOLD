@@ -1,6 +1,6 @@
 model Validacion_Monoblock_01 
   annotation (uses(Modelica(version="2.2.1")), Diagram);
-  Soltermica.Valvulas.Griferia.monoblock monoblock(
+  Soltermica.Valvulas.Griferia.Monoblock monoblock(
     medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
     dp_grifo=200000,
     Kv_grifo=0.0001) annotation (extent=[-4,2; 16,22]);
@@ -31,8 +31,8 @@ model Validacion_Monoblock_01
     T_Ambient=Modelica.SIunits.Conversions.from_degC(60)) 
     annotation (extent=[46,-92; 66,-72]);
 equation 
-  connect(monoblock.flowPort_b, sumidero.flowPort) annotation (points=[16,16;
-        36,16; 36,50; 56,50], style(
+  connect(monoblock.flowPort_b, sumidero.flowPort) annotation (points=[16,14; 
+        36,14; 36,50; 56,50], style(
       color=1,
       rgbcolor={255,0,0},
       fillColor=10,

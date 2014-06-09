@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.ColectoresSolares</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Colectores solares&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ColectoresSolares<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ColectoresSolares"></A><A HREF="Soltermica.html#Soltermica"
+>Soltermica</A>.ColectoresSolares</H2>
+<B>Colectores solares</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.ColectoresSolares.CatalogoEquiposS.png" ALT="Soltermica.ColectoresSolares.CatalogoEquipos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ColectoresSolares_CatalogoEquipos.html#Soltermica.ColectoresSolares.CatalogoEquipos"
+>CatalogoEquipos</A>
+</TD><TD>Especificaciones de los distintos captadores solares</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ColectoresSolares.ColectorSolarS.png" ALT="Soltermica.ColectoresSolares.ColectorSolar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ColectoresSolares.html#Soltermica.ColectoresSolares.ColectorSolar"
+>ColectorSolar</A>
+</TD><TD>Modelo de colector o captador solar</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ColectoresSolares.EjemplosS.png" ALT="Soltermica.ColectoresSolares.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ColectoresSolares_Ejemplos.html#Soltermica.ColectoresSolares.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos de funcionamiento de captadores solares</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ColectorSolar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ColectoresSolares.ColectorSolarI.png" ALT="Soltermica.ColectoresSolares.ColectorSolar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ColectoresSolares.ColectorSolar"></A><A HREF="Soltermica_ColectoresSolares.html#Soltermica.ColectoresSolares"
+>Soltermica.ColectoresSolares</A>.ColectorSolar</H2>
+<B>Modelo de colector o captador solar</B><p>
+<IMG SRC="Soltermica.ColectoresSolares.ColectorSolarD.png" ALT="Soltermica.ColectoresSolares.ColectorSolar">
+<H3>Information</H3>
+<PRE></pre>
+    <p>
+    Modelo de captador solar que implementa la curva de rendimiento según la norma UNE-EN 12975. <br>
+    Este modelo considera que el equipo alcanza condiciones estacionarias.<br>
+    </p>
+    <img src="../Imagenes/CurvaCaptador.png"><br>
+    <pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Fluido de trabajo</TD></TR>
+<TR><TD><A HREF="Soltermica_ColectoresSolares_CatalogoEquipos.html#Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones"
+>Especificaciones</A></TD><TD>espec</TD><TD>ColectoresSolares.CatalogoEq...</TD><TD>Especificaciones del equipo</TD></TR>
+<TR><TD>Real</TD><TD>T_ini</TD><TD>293.15</TD><TD>Temperatura inicial del captador</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>senalIrradiacion</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>Entrada de fluido de trabajo al captador</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Salida de fluido de trabajo del captador</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>SenTemp</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>senalTemperatura</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>factorSombras</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ColectorSolar <font color="darkgreen">&quot;Modelo de colector o captador solar&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> senalIrradiacion;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de fluido de trabajo al captador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Salida de fluido de trabajo del captador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> SenTemp;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.HeatCapacitor</A> masaTermica(
+    <font color="blue">final </font>C=espec.CapacidadTermicaVacio);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.PrescribedHeatFlow</A> gananciaSolar;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.PrescribedHeatFlow</A> perdidasAmbiente;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> senalTemperatura;
+  <A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector"
+>Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector</A> control_Colector(
+    <font color="blue">final </font>espec=espec);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.TemperatureSensor"
+>Modelica.Thermal.HeatTransfer.TemperatureSensor</A> temperatureSensor;
+  <A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"
+>Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico</A> 
+    volumenControlUnico1(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>Volumen=espec.V_col,
+    <font color="blue">final </font>dP_nom=espec.dp_nom,
+    <font color="blue">final </font>cV_nom=espec.V_flow_nom,
+    <font color="blue">final </font>T_ini=T_ini);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> factorSombras;
+  
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Fluido de trabajo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Soltermica_ColectoresSolares_CatalogoEquipos.html#Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones"
+>ColectoresSolares.CatalogoEquipos.Especificaciones</A> espec=<font color="red">ColectoresSolares.CatalogoEquipos.Especificaciones</font>() <font color="darkgreen">
+    &quot;Especificaciones del equipo&quot;</font>;
+  <font color="blue">parameter </font>Real T_ini=293.15 <font color="darkgreen">&quot;Temperatura inicial del captador&quot;</font>;
+  
+<font color="blue">equation </font>
+  <font color="red">connect</font>(control_Colector.ganancias, gananciaSolar.Q_flow);
+  <font color="red">connect</font>(control_Colector.perdidas, perdidasAmbiente.Q_flow);
+  <font color="red">connect</font>(senalTemperatura, control_Colector.senalTemperaturaAmbiente);
+  <font color="red">connect</font>(senalIrradiacion, control_Colector.senalIrradiacion);
+  <font color="red">connect</font>(temperatureSensor.T, SenTemp);
+  <font color="red">connect</font>(control_Colector.senalTemperaturaCaptador, temperatureSensor.T);
+  <font color="red">connect</font>(volumenControlUnico1.puertoExt, temperatureSensor.port);
+  <font color="red">connect</font>(flowPort_a, volumenControlUnico1.flowPort_a);
+  <font color="red">connect</font>(volumenControlUnico1.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(masaTermica.port, volumenControlUnico1.puertoInt);
+  <font color="red">connect</font>(gananciaSolar.port, volumenControlUnico1.puertoInt);
+  <font color="red">connect</font>(perdidasAmbiente.port, volumenControlUnico1.puertoInt);
+  <font color="red">connect</font>(factorSombras, control_Colector.factorSombras);
+<font color="blue">end </font>ColectorSolar;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:10 2014.
+</address></BODY>
+</HTML>

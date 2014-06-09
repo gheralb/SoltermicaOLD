@@ -1,0 +1,320 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos y configuraciones de instalaciones solares termicas&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Ejemplos"></A><A HREF="Soltermica.html#Soltermica"
+>Soltermica</A>.Ejemplos</H2>
+<B>Ejemplos y configuraciones de instalaciones solares termicas</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos.CondicionesContorno"
+>CondicionesContorno</A>
+</TD><TD>Modelo de pruebas de adquisicion de distintas condiciones de contorno</TD></TR>
+<TR><TD><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos.DemandaValvulaDeposito"
+>DemandaValvulaDeposito</A>
+</TD><TD>Modelo que integra una instalacon de suministro de ACS</TD></TR>
+<TR><TD><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos.InstalacionSolarDomestica"
+>InstalacionSolarDomestica</A>
+</TD><TD>Modelo de instalacion solare termica basica</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CondicionesContorno<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Ejemplos.CondicionesContorno"></A><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos"
+>Soltermica.Ejemplos</A>.CondicionesContorno</H2>
+<B>Modelo de pruebas de adquisicion de distintas condiciones de contorno</B><p>
+<IMG SRC="Soltermica.Ejemplos.CondicionesContornoD.png" ALT="Soltermica.Ejemplos.CondicionesContorno">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CondicionesContorno <font color="darkgreen">
+  &quot;Modelo de pruebas de adquisicion de distintas condiciones de contorno&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> consumoACS(
+    tableOnFile=true,
+    offset={0},
+    smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    tableName=&quot;perfilAnual_1&quot;,
+    fileName=&quot;CondicionesContorno\\perfilConsumoAnual.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> irradiacion(
+    tableOnFile=true,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    offset={1},
+    tableName=&quot;IrradAnual&quot;,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    fileName=&quot;CondicionesContorno\\D3pen_Irrad_39_20.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> temperaturaRed(
+    tableOnFile=true,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    tableName=&quot;Ciudad_Real&quot;,
+    offset={273.15},
+    fileName=&quot;CondicionesContorno\\temperaturasRed.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> temperaturaSeca(
+    tableOnFile=true,
+    offset={0},
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    fileName=&quot;CondicionesContorno\\TemperaturasSeca.mat&quot;,
+    tableName=&quot;D3_TempSec&quot;);
+<font color="blue">end </font>CondicionesContorno;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DemandaValvulaDeposito<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Ejemplos.DemandaValvulaDeposito"></A><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos"
+>Soltermica.Ejemplos</A>.DemandaValvulaDeposito</H2>
+<B>Modelo que integra una instalacon de suministro de ACS</B><p>
+<IMG SRC="Soltermica.Ejemplos.DemandaValvulaDepositoD.png" ALT="Soltermica.Ejemplos.DemandaValvulaDeposito">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DemandaValvulaDeposito <font color="darkgreen">
+  &quot;Modelo que integra una instalacon de suministro de ACS&quot;</font> 
+  <A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores.Acumulador_Orden"
+>Acumuladores.Acumulador_Orden</A> acumulador_Orden(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    T_ini=343.15,
+    espec=<font color="red">Soltermica.Acumuladores.CatalogoEquipos.IDROGAS_CV200SR</font>(),
+    n=5);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero2(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> Red(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> Red1(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> temperaturaRed(
+    tableOnFile=true,
+    tableName=&quot;Ciudad_Real&quot;,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    offset={273.15},
+    fileName=&quot;CondicionesContorno\\temperaturasRed.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> presionRed(k=251300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> consumoACS(
+    tableOnFile=true,
+    offset={0},
+    smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    tableName=&quot;perfilAnual_1&quot;,
+    fileName=&quot;CondicionesContorno\\perfilConsumoAnual.mat&quot;);
+  <A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monomando"
+>Valvulas.Griferia.Monomando</A> monomando(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    dp_grifo=251300,
+    Kv_grifo=0.0002);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> regulacionTemperatura(k=0);
+  <A HREF="Soltermica_Intercambiadores_Placas.html#Soltermica.Intercambiadores.Placas.IntercambiadorPlacas"
+>Intercambiadores.Placas.IntercambiadorPlacas</A> intercambiadorPlacas(
+    n=4,
+    medium_1=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    medium_2=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Intercambiadores.Placas.CatalogoEquipos.Fagor_IP_50</font>(),
+    T_ini=293.15);
+  <A HREF="Soltermica_Bombas_Circuladores.html#Soltermica.Bombas.Circuladores.Circulador"
+>Bombas.Circuladores.Circulador</A> circulador(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Bombas.Circuladores.CatalogoEquipos.GRUNDFOS_UPS_25_120</font>(),
+    T_ini=293.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> SenalCirculador(
+    rising=0.01,
+    width=120,
+    falling=0.01,
+    period=3600,
+    startTime=10);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> fuente(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="Soltermica_Bombas_Circuladores.html#Soltermica.Bombas.Circuladores.Circulador"
+>Bombas.Circuladores.Circulador</A> circuladorCarga(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Bombas.Circuladores.CatalogoEquipos.GRUNDFOS_UPS_25_120</font>(),
+    T_ini=293.15);
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> SenalCirculadorCarga(
+    rising=0.01,
+    width=120,
+    falling=0.01,
+    period=3600,
+    startTime=10);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure"
+>Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure</A> absolutePressure(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p=101300);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(Red1.flowPort, acumulador_Orden.flowPort_a);
+  <font color="red">connect</font>(temperaturaRed.y[1], Red1.T_Ambient);
+  <font color="red">connect</font>(temperaturaRed.y[1], Red.T_Ambient);
+  <font color="red">connect</font>(presionRed.y, Red.p_Ambient);
+  <font color="red">connect</font>(presionRed.y, Red1.p_Ambient);
+  <font color="red">connect</font>(acumulador_Orden.flowPort_b, monomando.caliente);
+  <font color="red">connect</font>(monomando.fria, Red.flowPort);
+  <font color="red">connect</font>(monomando.flowPort_b, sumidero.flowPort);
+  <font color="red">connect</font>(consumoACS.y[1], monomando.caudal);
+  <font color="red">connect</font>(regulacionTemperatura.y, monomando.temperatura);
+  <font color="red">connect</font>(intercambiadorPlacas.flowPort_b_2, acumulador_Orden.flowPort_a1);
+  <font color="red">connect</font>(sumidero2.flowPort, intercambiadorPlacas.flowPort_b_1);
+  <font color="red">connect</font>(SenalCirculador.y, circulador.u);
+  <font color="red">connect</font>(fuente.flowPort, circulador.flowPort_a);
+  <font color="red">connect</font>(circulador.flowPort_b, intercambiadorPlacas.flowPort_a_1);
+  <font color="red">connect</font>(circuladorCarga.flowPort_b, intercambiadorPlacas.flowPort_a_2);
+  <font color="red">connect</font>(circuladorCarga.flowPort_a, acumulador_Orden.flowPort_b1);
+  <font color="red">connect</font>(SenalCirculadorCarga.y, circuladorCarga.u);
+  <font color="red">connect</font>(absolutePressure.flowPort, circuladorCarga.flowPort_a);
+<font color="blue">end </font>DemandaValvulaDeposito;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InstalacionSolarDomestica<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Ejemplos.InstalacionSolarDomestica"></A><A HREF="Soltermica_Ejemplos.html#Soltermica.Ejemplos"
+>Soltermica.Ejemplos</A>.InstalacionSolarDomestica</H2>
+<B>Modelo de instalacion solare termica basica</B><p>
+<IMG SRC="Soltermica.Ejemplos.InstalacionSolarDomesticaD.png" ALT="Soltermica.Ejemplos.InstalacionSolarDomestica">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InstalacionSolarDomestica <font color="darkgreen">
+  &quot;Modelo de instalacion solare termica basica&quot;</font> 
+    <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> Consumo(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=101300,
+    T_Ambient=293.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure"
+>Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure</A> PresionReferencia(
+      medium=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>(),
+                                                   p=251300);
+  <A HREF="Soltermica_Acumuladores_Interacumuladores.html#Soltermica.Acumuladores.Interacumuladores.Interacumulador_Mezcla"
+>Acumuladores.Interacumuladores.Interacumulador_Mezcla</A> interacumulador_Mezcla(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    medium_int=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>(),
+    espec=
+        <font color="red">Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.LAPESA_CV_80_M1S</font>(),
+    T_ini=293.15,
+    n_int=2,
+    n=5);
+  
+  <A HREF="Soltermica_ColectoresSolares.html#Soltermica.ColectoresSolares.ColectorSolar"
+>ColectoresSolares.ColectorSolar</A> colectorSolar(
+    medium=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>(),
+    espec=<font color="red">Soltermica.ColectoresSolares.CatalogoEquipos.BAXIROCA_PS_2_0</font>(),
+    T_ini=293.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> consumoACS(
+    tableOnFile=true,
+    offset={0},
+    smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    tableName=&quot;perfilAnual_1&quot;,
+    fileName=&quot;CondicionesContorno\\perfilConsumoAnual.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> irradiacion(
+    tableOnFile=true,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    offset={1},
+    tableName=&quot;IrradAnual&quot;,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    fileName=&quot;CondicionesContorno\\D3pen_Irrad_39_20.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> temperaturaSeca(
+    tableOnFile=true,
+    offset={0},
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    tableName=&quot;D3_TempSec&quot;,
+    fileName=&quot;CondicionesContorno\\TemperaturasSeca.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> temperaturaRed(
+    tableOnFile=true,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    tableName=&quot;Ciudad_Real&quot;,
+    offset={273.15},
+    fileName=&quot;CondicionesContorno\\temperaturasRed.mat&quot;);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> Red(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> presionRed(k=251300);
+  <A HREF="Soltermica_Bombas_Circuladores.html#Soltermica.Bombas.Circuladores.Circulador"
+>Bombas.Circuladores.Circulador</A> circulador(
+    medium=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>(),
+    espec=<font color="red">Soltermica.Bombas.Circuladores.CatalogoEquipos.GRUNDFOS_UPS_25_120</font>(),
+    T_ini=293.15);
+  
+  <A HREF="Soltermica_Controladores.html#Soltermica.Controladores.ControladorSolar"
+>Controladores.ControladorSolar</A> controladorSolar(
+    Temp_Acum=333,
+    DeltaT_on=4,
+    DeltaT_off=2);
+  <A HREF="Soltermica_Calderas.html#Soltermica.Calderas.Caldera"
+>Calderas.Caldera</A> caldera(
+    espec=<font color="red">Soltermica.Calderas.CatalogoEquipos.BAXI_PLATINIUM_24_24F</font>(),
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    T_ini=293.15,
+    TempReg=50);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> tempAmbInt(k=293.15);
+  <A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monomando"
+>Valvulas.Griferia.Monomando</A> monomando(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    dp_grifo=251300,
+    Kv_grifo=0.0002);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> regulacionTempertura(k=0);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> AF(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> factorSombras(k=0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(colectorSolar.flowPort_b, interacumulador_Mezcla.flowPort_a1);
+  <font color="red">connect</font>(temperaturaSeca.y[1], colectorSolar.senalTemperatura);
+  <font color="red">connect</font>(irradiacion.y[1], colectorSolar.senalIrradiacion);
+  <font color="red">connect</font>(Red.flowPort, interacumulador_Mezcla.flowPort_a);
+  <font color="red">connect</font>(temperaturaRed.y[1], Red.T_Ambient);
+  <font color="red">connect</font>(presionRed.y, Red.p_Ambient);
+  <font color="red">connect</font>(circulador.flowPort_b, colectorSolar.flowPort_a);
+  <font color="red">connect</font>(circulador.flowPort_a, interacumulador_Mezcla.flowPort_b1);
+  <font color="red">connect</font>(colectorSolar.SenTemp, controladorSolar.TempCol);
+  <font color="red">connect</font>(interacumulador_Mezcla.SensorTemperatura, controladorSolar.TempDep);
+  <font color="red">connect</font>(PresionReferencia.flowPort, circulador.flowPort_a);
+  <font color="red">connect</font>(interacumulador_Mezcla.flowPort_b, caldera.flowPort_a);
+  <font color="red">connect</font>(tempAmbInt.y, caldera.T_amb);
+  <font color="red">connect</font>(monomando.flowPort_b, Consumo.flowPort);
+  <font color="red">connect</font>(caldera.flowPort_b, monomando.caliente);
+  <font color="red">connect</font>(consumoACS.y[1], monomando.caudal);
+  <font color="red">connect</font>(controladorSolar.y, circulador.u);
+  <font color="red">connect</font>(regulacionTempertura.y, monomando.temperatura);
+  <font color="red">connect</font>(AF.p_Ambient, presionRed.y);
+  <font color="red">connect</font>(AF.T_Ambient, temperaturaRed.y[1]);
+  <font color="red">connect</font>(AF.flowPort, monomando.fria);
+  <font color="red">connect</font>(factorSombras.y, colectorSolar.factorSombras);
+<font color="blue">end </font>InstalacionSolarDomestica;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:13 2014.
+</address></BODY>
+</HTML>

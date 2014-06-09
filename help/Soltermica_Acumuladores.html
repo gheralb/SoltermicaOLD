@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Acumuladores</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete de depositos acumuladores de agua caliente&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Acumuladores<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores"></A><A HREF="Soltermica.html#Soltermica"
+>Soltermica</A>.Acumuladores</H2>
+<B>Paquete de depositos acumuladores de agua caliente</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.Acumuladores.Acumulador_OrdenS.png" ALT="Soltermica.Acumuladores.Acumulador_Orden" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores.Acumulador_Orden"
+>Acumulador_Orden</A>
+</TD><TD>Deposito acumulador cerrado. Estratificacion mediante ordenamiento de carga</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Acumuladores.CatalogoEquiposS.png" ALT="Soltermica.Acumuladores.CatalogoEquipos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Acumuladores_CatalogoEquipos.html#Soltermica.Acumuladores.CatalogoEquipos"
+>CatalogoEquipos</A>
+</TD><TD>Catalogo con las especificaciones de distintos depositos acumuladores</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Acumuladores.CatalogoEquiposS.png" ALT="Soltermica.Acumuladores.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Acumuladores_Ejemplos.html#Soltermica.Acumuladores.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos de funcionamiento de depositos acumuladores de agua caliente</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Acumuladores.CatalogoEquiposS.png" ALT="Soltermica.Acumuladores.Interacumuladores" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Acumuladores_Interacumuladores.html#Soltermica.Acumuladores.Interacumuladores"
+>Interacumuladores</A>
+</TD><TD>Deposito acumulador de agua caliente con intercambiador integrado. Estratificacion mediante mezcla de volumenes</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Acumulador_Orden<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Acumuladores.Acumulador_OrdenI.png" ALT="Soltermica.Acumuladores.Acumulador_Orden" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Acumuladores.Acumulador_Orden"></A><A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores"
+>Soltermica.Acumuladores</A>.Acumulador_Orden</H2>
+<B>Deposito acumulador cerrado. Estratificacion mediante ordenamiento de carga</B><p>
+<IMG SRC="Soltermica.Acumuladores.Acumulador_OrdenD.png" ALT="Soltermica.Acumuladores.Acumulador_Orden">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Numero de segmentos que se divide el volumen de control</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Fluido contenido en el deposito</TD></TR>
+<TR><TD><A HREF="Soltermica_Acumuladores_CatalogoEquipos.html#Soltermica.Acumuladores.CatalogoEquipos.Especificaciones"
+>Especificaciones</A></TD><TD>espec</TD><TD>Soltermica.Acumuladores.Cata...</TD><TD>Especificaciones del equipo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T_ini</TD><TD>293.15</TD><TD>Temperatura inicial de todo el deposito [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>Entrada de agua fria de red</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Salida de agua caliente para consumo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a1</TD><TD>Entrada de agua caliente intercambiada</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b1</TD><TD>Salida de agua menos caliente intercambiada</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Acumulador_Orden <font color="darkgreen">
+  &quot;Deposito acumulador cerrado. Estratificacion mediante ordenamiento de carga&quot;</font> 
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de agua fria de red&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Salida de agua caliente para consumo&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a1(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de agua caliente intercambiada&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b1(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Salida de agua menos caliente intercambiada&quot;</font>;
+  <A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"
+>Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico</A> volumenControl(
+    <font color="blue">final </font>Volumen=0,
+    <font color="blue">final </font>dP_nom=espec.dp_nom,
+    <font color="blue">final </font>cV_nom=espec.V_flow_nom,
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor</A> m_flowSensor(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.TSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.TSensor</A> tSensor(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden"
+>Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden</A> 
+    ControlEstratificacion(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>n=n,
+    <font color="blue">final </font>volumen=espec.volumen,
+    <font color="blue">final </font>altura=espec.altura);
+  <A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D"
+>Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D</A> 
+    volumenesControl1D(
+    <font color="blue">final </font>n=n,
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>volumen=espec.volumen,
+    <font color="blue">final </font>longitud=espec.altura,
+    <font color="blue">final </font>dp_nom=espec.dp_nom,
+    <font color="blue">final </font>V_flow_nom=espec.V_flow_nom,
+    <font color="blue">final </font>T_ini=T_ini);
+  <font color="blue">parameter </font>Integer n(min=2)=2 <font color="darkgreen">
+    &quot;Numero de segmentos que se divide el volumen de control&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Fluido contenido en el deposito&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Soltermica_Acumuladores_CatalogoEquipos.html#Soltermica.Acumuladores.CatalogoEquipos.Especificaciones"
+>Soltermica.Acumuladores.CatalogoEquipos.Especificaciones</A> espec =<font color="red"> Soltermica.Acumuladores.CatalogoEquipos.Especificaciones</font>() <font color="darkgreen">
+    &quot;Especificaciones del equipo&quot;</font>;
+    <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Modelica.SIunits.Temp_K</A> T_ini=293.15 <font color="darkgreen">
+    &quot;Temperatura inicial de todo el deposito&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(flowPort_a1, m_flowSensor.flowPort_a);
+  <font color="red">connect</font>(m_flowSensor.flowPort_b, volumenControl.flowPort_a);
+  <font color="red">connect</font>(volumenControl.flowPort_b, flowPort_b1);
+  <font color="red">connect</font>(tSensor.flowPort, flowPort_a1);
+  <font color="red">connect</font>(tSensor.y, ControlEstratificacion.T_in);
+  <font color="red">connect</font>(m_flowSensor.y, ControlEstratificacion.m_flow);
+  <font color="red">connect</font>(volumenControl.puertoInt, ControlEstratificacion.port_a);
+  <font color="red">connect</font>(volumenesControl1D.flowPort_a, flowPort_a);
+  <font color="red">connect</font>(volumenesControl1D.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(ControlEstratificacion.puertoInt, volumenesControl1D.puertoInt);
+<font color="blue">end </font>Acumulador_Orden;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:05 2014.
+</address></BODY>
+</HTML>

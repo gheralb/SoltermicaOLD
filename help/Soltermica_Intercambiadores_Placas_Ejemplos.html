@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Intercambiadores.Placas.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos y modelos de verificacion de intercambiadores de calor de placas&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Intercambiadores.Placas.Ejemplos"></A><A HREF="Soltermica_Intercambiadores_Placas.html#Soltermica.Intercambiadores.Placas"
+>Soltermica.Intercambiadores.Placas</A>.Ejemplos</H2>
+<B>Ejemplos y modelos de verificacion de intercambiadores de calor de placas</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Intercambiadores_Placas_Ejemplos.html#Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_01"
+>Validacion_01</A>
+</TD><TD>Pruebas de verificación de funcionamiento del modelo del intercambiador de placas 0.5</TD></TR>
+<TR><TD><A HREF="Soltermica_Intercambiadores_Placas_Ejemplos.html#Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_02"
+>Validacion_02</A>
+</TD><TD>Pruebas de verificación de funcionamiento del modelo del intercambiador de placas a contraflujo</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_01<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_01"></A><A HREF="Soltermica_Intercambiadores_Placas_Ejemplos.html#Soltermica.Intercambiadores.Placas.Ejemplos"
+>Soltermica.Intercambiadores.Placas.Ejemplos</A>.Validacion_01</H2>
+<B>Pruebas de verificación de funcionamiento del modelo del intercambiador de placas 0.5</B><p>
+<IMG SRC="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_01D.png" ALT="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_01">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_01 <font color="darkgreen">
+  &quot;Pruebas de verificación de funcionamiento del modelo del intercambiador de placas 0.5&quot;</font> 
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow_1(
+    m=0.1,
+    T0=348.15,
+    medium=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow_2(medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    m=0.1,
+    T0=323.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_a_2(
+        medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+        p_Ambient=101300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(50));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> caudal_2(k=0.00148) <font color="darkgreen">
+    &quot;Caudal masico consigna secundario&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_b_1(
+        p_Ambient=101300,
+    T_Ambient=293.15,
+    medium=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_b_2(
+        medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+        p_Ambient=101300,
+    T_Ambient=293.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> ambiente_a_1(medium=
+        <font color="red">Soltermica.Media.Propilenglicol_30_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Pconst_1(k=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Pconst_2(k=348.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid(
+    amplitude=0.001553,
+    rising=60,
+    falling=60,
+    period=600,
+    startTime=10,
+    width=500);
+  <A HREF="Soltermica_Intercambiadores_Placas.html#Soltermica.Intercambiadores.Placas.IntercambiadorPlacas"
+>IntercambiadorPlacas</A> intercambiadorPlacas(
+    n=5,
+    medium_1=<font color="red">Soltermica.Media.Propilenglicol_30_25</font>(),
+    medium_2=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Intercambiadores.Placas.CatalogoEquipos.Fagor_IP_50</font>(),
+    T_ini=293.15);
+<font color="blue">equation </font>
+  <font color="red">    connect</font>(ambiente_a_2.flowPort, prescribedVolumeFlow_2.flowPort_a);
+  <font color="red">    connect</font>(Pconst_1.y, ambiente_a_1.p_Ambient);
+  <font color="red">    connect</font>(ambiente_a_1.flowPort, prescribedVolumeFlow_1.flowPort_a);
+  <font color="red">    connect</font>(caudal_2.y, prescribedVolumeFlow_2.VolumeFlow);
+  <font color="red">connect</font>(ambiente_a_1.T_Ambient, Pconst_2.y);
+  <font color="red">connect</font>(trapezoid.y, prescribedVolumeFlow_1.VolumeFlow);
+  <font color="red">connect</font>(prescribedVolumeFlow_1.flowPort_b, intercambiadorPlacas.flowPort_a_1);
+  <font color="red">connect</font>(ambiente_b_1.flowPort, intercambiadorPlacas.flowPort_b_1);
+  <font color="red">connect</font>(intercambiadorPlacas.flowPort_a_2, prescribedVolumeFlow_2.flowPort_b);
+  <font color="red">connect</font>(intercambiadorPlacas.flowPort_b_2, ambiente_b_2.flowPort);
+<font color="blue">end </font>Validacion_01;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_02<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_02"></A><A HREF="Soltermica_Intercambiadores_Placas_Ejemplos.html#Soltermica.Intercambiadores.Placas.Ejemplos"
+>Soltermica.Intercambiadores.Placas.Ejemplos</A>.Validacion_02</H2>
+<B>Pruebas de verificación de funcionamiento del modelo del intercambiador de placas a contraflujo</B><p>
+<IMG SRC="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_02D.png" ALT="Soltermica.Intercambiadores.Placas.Ejemplos.Validacion_02">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_02 <font color="darkgreen">
+  &quot;Pruebas de verificación de funcionamiento del modelo del intercambiador de placas a contraflujo&quot;</font> 
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow_1(
+    m=0.1,
+    T0=348.15,
+    medium=<font color="red">Soltermica.Media.Propilenglicol_40_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow_2(medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    m=0.1,
+    T0=323.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_a_2(
+        medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+        p_Ambient=101300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(50));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> caudal_2(k=0.00148) <font color="darkgreen">
+    &quot;Caudal masico consigna secundario&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_b_1(
+        p_Ambient=101300,
+    T_Ambient=293.15,
+    medium=<font color="red">Soltermica.Media.Propilenglicol_40_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambiente_b_2(
+        medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+        p_Ambient=101300,
+    T_Ambient=293.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> ambiente_a_1(medium=
+        <font color="red">Soltermica.Media.Propilenglicol_40_25</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Pconst_1(k=101300);
+  <A HREF="Soltermica_Intercambiadores_Placas.html#Soltermica.Intercambiadores.Placas.IntercambiadorPlacas"
+>Soltermica.Intercambiadores.Placas.IntercambiadorPlacas</A> intercambiadorMulti(
+    medium_2=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Intercambiadores.Placas.CatalogoEquipos.Fagor_IP_50</font>(),
+    T0=348.15,
+    medium_1=<font color="red">Soltermica.Media.Propilenglicol_40_25</font>(),
+    n=4);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Pconst_2(k=348.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid(
+    amplitude=0.001553,
+    rising=60,
+    width=300,
+    falling=60,
+    period=600,
+    startTime=10);
+<font color="blue">equation </font>
+  <font color="red">    connect</font>(ambiente_a_2.flowPort, prescribedVolumeFlow_2.flowPort_a);
+  <font color="red">    connect</font>(Pconst_1.y, ambiente_a_1.p_Ambient);
+  <font color="red">    connect</font>(ambiente_a_1.flowPort, prescribedVolumeFlow_1.flowPort_a);
+  <font color="red">    connect</font>(caudal_2.y, prescribedVolumeFlow_2.VolumeFlow);
+  <font color="red">connect</font>(prescribedVolumeFlow_1.flowPort_b, intercambiadorMulti.flowPort_a_1);
+  <font color="red">connect</font>(ambiente_b_1.flowPort, intercambiadorMulti.flowPort_b_1);
+  <font color="red">connect</font>(ambiente_a_1.T_Ambient, Pconst_2.y);
+  <font color="red">connect</font>(trapezoid.y, prescribedVolumeFlow_1.VolumeFlow);
+  <font color="red">connect</font>(ambiente_b_2.flowPort, intercambiadorMulti.flowPort_a_2);
+  <font color="red">connect</font>(prescribedVolumeFlow_2.flowPort_b, intercambiadorMulti.flowPort_b_2);
+<font color="blue">end </font>Validacion_02;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:14 2014.
+</address></BODY>
+</HTML>

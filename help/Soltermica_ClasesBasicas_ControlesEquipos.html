@@ -1,0 +1,423 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.ClasesBasicas.ControlesEquipos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete que incluye los modelos de control de los fenomenos de los equipos&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlesEquipos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ClasesBasicas.ControlesEquipos"></A><A HREF="Soltermica_ClasesBasicas.html#Soltermica.ClasesBasicas"
+>Soltermica.ClasesBasicas</A>.ControlesEquipos</H2>
+<B>Paquete que incluye los modelos de control de los fenomenos de los equipos</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_OrdenS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden"
+>Control_Acumulador_Orden</A>
+</TD><TD>Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por ordenamiento de carga</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CalderaS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera"
+>Control_Caldera</A>
+</TD><TD>Bloque de control de la caldera</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CirculadorS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador"
+>Control_Circulador</A>
+</TD><TD>Bloque de control del circulador</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_ColectorS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector"
+>Control_Colector</A>
+</TD><TD>Bloque de control del colector o caprador solar</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_MezclaS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_Mezcla" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_Mezcla"
+>Control_Interacumulador_Mezcla</A>
+</TD><TD>Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por mezcla de volumenes</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_MonomandoS.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando"
+>Control_Monomando</A>
+</TD><TD>Bloque que controla la regulacion de la griferia monomando</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Acumulador_Orden<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_OrdenI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Acumulador_Orden</H2>
+<B>Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por ordenamiento de carga</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_OrdenD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Acumulador_Orden">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Medio del volumen de control a controlar</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>3</TD><TD>Numero de segmentos del volumen de control</TD></TR>
+<TR><TD>Real</TD><TD>volumen</TD><TD>1</TD><TD>Volumen del volumen de control</TD></TR>
+<TR><TD>Real</TD><TD>altura</TD><TD>1</TD><TD>Altura o longitud del volumen de control</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_in</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>m_flow</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>puertoInt[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Acumulador_Orden <font color="darkgreen">
+  &quot;Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por ordenamiento de carga&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> m_flow;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> port_a;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Medio del volumen de control a controlar&quot;</font>;
+  <font color="blue">parameter </font>Integer n=3 <font color="darkgreen">&quot;Numero de segmentos del volumen de control&quot;</font>;
+  <font color="blue">parameter </font>Real volumen=1 <font color="darkgreen">&quot;Volumen del volumen de control&quot;</font>;
+  <font color="blue">parameter </font>Real altura=1 <font color="darkgreen">&quot;Altura o longitud del volumen de control&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b</A> puertoInt[n];
+  Real Q_int <font color="darkgreen">
+    &quot;Flujo de calor intercambiador con medio exteriores al volumen de control&quot;</font>;
+  Real Q_in[n] <font color="darkgreen">&quot;Flujo de calor entrante en cada volumen&quot;</font>;
+  Real Q_cond[n] <font color="darkgreen">
+    &quot;Flujo de calor intercambiado por conduccion entre capas vecinas&quot;</font>;
+  Real Q_neto[n] <font color="darkgreen">&quot;Flujo de calor neto recibido por cada volumen de control&quot;</font>;
+<font color="blue">equation </font>
+<font color="darkgreen">//Balance de energía neta que entra en el volumen</font>
+Q_int=<font color="red">noEvent</font>(<font color="blue">if </font>m_flow&gt;0.0001<font color="blue"> then </font>m_flow*medium.cp*(T_in-puertoInt[n].T)<font color="blue"> else </font>0);
+port_a.Q_flow=Q_int;
+<font color="darkgreen">//Determinacion flujo de calor por los puertos del deposito</font>
+<font color="darkgreen">//Flujo de calor entrante desde el exterior</font>
+Q_in[1]=<font color="red">noEvent</font>(<font color="blue">if </font>(T_in&gt;=puertoInt[1].T)<font color="blue"> then </font>-Q_int<font color="blue"> else </font>0);
+<font color="blue">for </font>i<font color="blue"> in </font>2:n<font color="blue"> loop</font>
+  Q_in[i]=<font color="red">noEvent</font>(<font color="blue">if </font>(T_in&gt;=puertoInt[i].T<font color="blue"> and </font>puertoInt[i-1].T&gt;T_in)<font color="blue"> then </font>-Q_int<font color="blue"> else </font>0);
+<font color="blue">end for</font>;
+<font color="darkgreen">//Flujo de calor por el fenomeno de conduccion de calor</font>
+Q_cond[1]=-(((volumen/altura)*medium.lamda*(puertoInt[1+1].T-puertoInt[1].T))/(altura/n));
+<font color="blue">for </font>i<font color="blue"> in </font>2:n-1<font color="blue"> loop</font>
+  Q_cond[i]=-(((volumen/altura)*medium.lamda*(puertoInt[i-1].T-puertoInt[i].T))/(altura/n)+
+((volumen/altura)*medium.lamda*(puertoInt[i+1].T-puertoInt[i].T))/(altura/n));
+<font color="blue">end for</font>;
+Q_cond[n]=-(((volumen/altura)*medium.lamda*(puertoInt[n-1].T-puertoInt[n].T))/(altura/n));
+<font color="darkgreen">//Balance de todos los flujos de calor</font>
+Q_neto[1]=Q_in[1]+Q_cond[1];
+<font color="blue">for </font>i<font color="blue"> in </font>2:n<font color="blue"> loop</font>
+  Q_neto[i]=Q_in[i]+Q_cond[i];
+<font color="blue">end for</font>;
+<font color="darkgreen">//Flujo calor neto en cada elemento</font>
+<font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+  puertoInt[i].Q_flow=Q_neto[i];
+<font color="blue">end for</font>;
+<font color="blue">end </font>Control_Acumulador_Orden;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Caldera<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CalderaI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Caldera</H2>
+<B>Bloque de control de la caldera</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CalderaD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>caudalMinACS</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>rendimientoInstantaneo</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>GradoModulacionMin</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>PotenciaNominal</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>PCCombustible</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>TempRegulacion</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_in</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>potenciaTeorica</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>V_flow_in</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>Pot_Real</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Caldera <font color="darkgreen">&quot;Bloque de control de la caldera&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> potenciaTeorica;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> V_flow_in;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Pot_Real;
+  Real encendido <font color="darkgreen">
+    &quot;Variable que determina si existe el caudal minima para que la caldera se encienda&quot;</font>;
+  Real gastoInstantaneoCombustible <font color="darkgreen">&quot;Gasto de combustible&quot;</font>;
+<font color="darkgreen">//Parametros para el control. Se tienen que definir en las especificaciones</font>
+  <font color="blue">parameter </font>Real caudalMinACS=1;
+  <font color="blue">parameter </font>Real rendimientoInstantaneo=1;
+  <font color="blue">parameter </font>Real GradoModulacionMin=1;
+  <font color="blue">parameter </font>Real PotenciaNominal=1;
+  <font color="blue">parameter </font>Real PCCombustible=1;
+  <font color="blue">parameter </font>Real TempRegulacion=1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>();
+  
+<font color="blue">equation </font>
+encendido=<font color="red">noEvent</font>(<font color="blue">if </font>(V_flow_in&gt;caudalMinACS)<font color="blue"> then </font>1<font color="blue"> else </font>0);
+<font color="darkgreen">//Energia aportada al fluido</font>
+potenciaTeorica=<font color="red">noEvent</font>(
+  <font color="blue">if </font>T_in&lt;273.15+20<font color="blue"> then </font>PotenciaNominal*encendido<font color="blue"> else </font>
+    <font color="blue">if </font>(T_in&gt;=273.15+TempRegulacion-30<font color="blue"> and </font>T_in&lt;273.15+TempRegulacion-15)<font color="blue"> then </font>PotenciaNominal*(((1-GradoModulacionMin)/2)+GradoModulacionMin)*encendido<font color="blue"> else </font>
+    <font color="blue">if </font>(T_in&gt;=273.15+TempRegulacion-15<font color="blue"> and </font>T_in&lt;273.15+TempRegulacion)<font color="blue"> then </font>PotenciaNominal*GradoModulacionMin*encendido<font color="blue"> else </font>
+         0);
+<font color="darkgreen">//Gasto combustible</font>
+gastoInstantaneoCombustible=(potenciaTeorica/(rendimientoInstantaneo*PCCombustible));
+  
+<font color="blue">end </font>Control_Caldera;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Circulador<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CirculadorI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Circulador</H2>
+<B>Bloque de control del circulador</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_CirculadorD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Circulador">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Power</A></TD><TD>pot_elec_nom</TD><TD>&nbsp;</TD><TD>Potencia electrica consumida en condiciones nominales [W]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SenalEntrada</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutput"
+>BooleanOutput</A></TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Circulador <font color="darkgreen">&quot;Bloque de control del circulador&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SenalEntrada;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> cons_elec <font color="darkgreen">&quot;Consumo electrico instantaneo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> pot_elec_nom <font color="darkgreen">
+    &quot;Potencia electrica consumida en condiciones nominales&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutput"
+>Modelica.Blocks.Interfaces.BooleanOutput</A> y;
+<font color="blue">equation </font>
+<font color="darkgreen">//control salida booleana</font>
+y=<font color="blue">if </font>SenalEntrada&gt;0<font color="blue"> then </font>true<font color="blue"> else </font>false;
+cons_elec=<font color="red">noEvent</font>(<font color="blue">if </font>SenalEntrada&gt;0<font color="blue"> then </font>pot_elec_nom<font color="blue"> else </font>0);
+  
+<font color="blue">end </font>Control_Circulador;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Colector<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_ColectorI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Colector</H2>
+<B>Bloque de control del colector o caprador solar</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_ColectorD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Colector">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_ColectoresSolares_CatalogoEquipos.html#Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones"
+>Especificaciones</A></TD><TD>espec</TD><TD>Soltermica.ColectoresSolares...</TD><TD>Especificaciones propias del captador solar</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>senalIrradiacion</TD><TD>Senal de irradiacion solar incidente</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>senalTemperaturaAmbiente</TD><TD>Senal de temperatura ambiental exterior</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>senalTemperaturaCaptador</TD><TD>Senal de la temperatura del captador. Utilizada para el control</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>factorSombras</TD><TD>Factor de 1 a 0 que representa el porcentaje de perdidas por sombras arrojadas al captador</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>ganancias</TD><TD>ganancia de calor debidas a la radiacion incidente</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>perdidas</TD><TD>perdidas de calor debidas a la conveccion con el exterior (cuendo este esta mas frio)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Colector <font color="darkgreen">
+  &quot;Bloque de control del colector o caprador solar&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> senalIrradiacion <font color="darkgreen">
+    &quot;Senal de irradiacion solar incidente&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> senalTemperaturaAmbiente <font color="darkgreen">
+    &quot;Senal de temperatura ambiental exterior&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> senalTemperaturaCaptador <font color="darkgreen">
+    &quot;Senal de la temperatura del captador. Utilizada para el control&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> factorSombras <font color="darkgreen">
+    &quot;Factor de 1 a 0 que representa el porcentaje de perdidas por sombras arrojadas al captador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> ganancias <font color="darkgreen">
+    &quot;ganancia de calor debidas a la radiacion incidente&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> perdidas <font color="darkgreen">
+    &quot;perdidas de calor debidas a la conveccion con el exterior (cuendo este esta mas frio)&quot;</font>;
+  Real Rend_captador(min=0,max=1) <font color="darkgreen">
+    &quot;Rendimiento instantáneo del captador. Mirar como se define de 0 a 1&quot;</font>;
+  Real T_corregida <font color="darkgreen">
+    &quot;Variable comunmente utilizada en la documentacion tecnica. Es la diferencia entre la temperatura del captador y la del ambiente partido por la irradiacion&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Soltermica_ColectoresSolares_CatalogoEquipos.html#Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones"
+>Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones</A> espec
+    =<font color="red"> Soltermica.ColectoresSolares.CatalogoEquipos.Especificaciones</font>() <font color="darkgreen">
+    &quot;Especificaciones propias del captador solar&quot;</font>;
+  
+<font color="blue">equation </font>
+  <font color="darkgreen">//Ganancia solar</font>
+  ganancias=espec.A_apertura*senalIrradiacion*espec.Rend_optico*espec.IAM_50*(1-factorSombras);
+  <font color="darkgreen">//Perdidas ambiente</font>
+  perdidas=<font color="red">noEvent</font>(<font color="blue">if </font>senalTemperaturaCaptador&gt;senalTemperaturaAmbiente<font color="blue"> then </font>-espec.A_apertura*(espec.Coef_perdidas_1*(senalTemperaturaCaptador-senalTemperaturaAmbiente)+espec.Coef_perdidas_2*(senalTemperaturaCaptador-senalTemperaturaAmbiente)^2)<font color="blue"> else </font>0);
+  <font color="darkgreen">//Temperatura corregida</font>
+  T_corregida=<font color="red">noEvent</font>(<font color="blue">if </font>senalTemperaturaCaptador&gt;senalTemperaturaAmbiente<font color="blue"> then </font>(senalTemperaturaCaptador-senalTemperaturaAmbiente)/senalIrradiacion<font color="blue"> else </font>0);
+  <font color="darkgreen">//Rendimiento captador</font>
+  Rend_captador=<font color="red">noEvent</font>(<font color="blue">if </font>(senalIrradiacion&gt;1<font color="blue"> and </font>T_corregida&gt;0<font color="blue"> and </font><font color="red">abs</font>(perdidas)&lt;ganancias)<font color="blue"> then </font>espec.Rend_optico-espec.Coef_perdidas_1*T_corregida-espec.Coef_perdidas_2*(T_corregida^2)/senalIrradiacion<font color="blue"> else </font>0);
+  <font color="darkgreen">//and abs(perdidas)&lt;ganancias</font>
+<font color="blue">end </font>Control_Colector;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Interacumulador_Mezcla<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_MezclaI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_Mezcla" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_Mezcla"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Interacumulador_Mezcla</H2>
+<B>Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por mezcla de volumenes</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_MezclaD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Interacumulador_Mezcla">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>3</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>volumen</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>altura</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>cteTiempo</TD><TD>1</TD><TD>Constante de tiempo para el fenomeno de inversion de temperatura</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>puertoInt[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Interacumulador_Mezcla <font color="darkgreen">
+  &quot;Bloque que controla el balance de energia a nivel interno en un volumen de fluido. Modela el fenomeno de estratificacion por mezcla de volumenes&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b</A> puertoInt[n];
+  Real Q_cond[n] <font color="darkgreen">
+    &quot;Flujo de calor intercambiado por conduccion entre capas vecinas&quot;</font>;
+  Real Q_invTemp[n] <font color="darkgreen">&quot;Flujo de calor producido por inversion de temperaturas&quot;</font>;
+  Real Q_neto[n] <font color="darkgreen">&quot;Flujo de calor neto recibido por cada volumen de control&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>();
+  <font color="blue">parameter </font>Integer n=3;
+  <font color="blue">parameter </font>Real volumen=1;
+  <font color="blue">parameter </font>Real altura=1;
+  <font color="blue">parameter </font>Real cteTiempo=1 <font color="darkgreen">
+    &quot;Constante de tiempo para el fenomeno de inversion de temperatura&quot;</font>;
+<font color="blue">equation </font>
+<font color="darkgreen">//Determinacion flujo de calor por los puertos del deposito</font>
+<font color="darkgreen">//Flujo de calor por el fenomeno de conduccion de calor</font>
+Q_cond[1]=(((volumen/altura)*medium.lamda*(puertoInt[1+1].T-puertoInt[1].T))/(altura/n));
+<font color="blue">for </font>i<font color="blue"> in </font>2:n-1<font color="blue"> loop</font>
+  Q_cond[i]=(((volumen/altura)*medium.lamda*(puertoInt[i-1].T-puertoInt[i].T))/(altura/n)+
+((volumen/altura)*medium.lamda*(puertoInt[i+1].T-puertoInt[i].T))/(altura/n));
+<font color="blue">end for</font>;
+Q_cond[n]=(((volumen/altura)*medium.lamda*(puertoInt[n-1].T-puertoInt[n].T))/(altura/n));
+  
+<font color="darkgreen">//Flujo de calor por el fenomeno de inversion de temperatura</font>
+<font color="blue">for </font>i<font color="blue"> in </font>1:n-1<font color="blue"> loop</font>
+  Q_invTemp[i]=<font color="red">noEvent</font>(<font color="blue">if </font>puertoInt[i+1].T-puertoInt[i].T&gt;0<font color="blue"> then </font>((volumen/altura)*medium.cp*(((puertoInt[i+1].T+puertoInt[i].T)/2)-puertoInt[i].T))/cteTiempo<font color="blue"> else </font>0);
+<font color="blue">end for</font>;
+Q_invTemp[n]=0;
+  
+<font color="darkgreen">//Balance de todos los flujos de calor</font>
+Q_neto[1]=Q_cond[1]+Q_invTemp[1];
+<font color="blue">for </font>i<font color="blue"> in </font>2:n<font color="blue"> loop</font>
+  Q_neto[i]=Q_cond[i]+Q_invTemp[i]-Q_invTemp[i-1];
+<font color="blue">end for</font>;
+  
+<font color="darkgreen">//Flujo calor neto en cada elemento</font>
+<font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+  puertoInt[i].Q_flow=-Q_neto[i];
+<font color="blue">end for</font>;
+  
+<font color="blue">end </font>Control_Interacumulador_Mezcla;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Control_Monomando<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_MonomandoI.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando"></A><A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos"
+>Soltermica.ClasesBasicas.ControlesEquipos</A>.Control_Monomando</H2>
+<B>Bloque que controla la regulacion de la griferia monomando</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.ControlesEquipos.Control_MonomandoD.png" ALT="Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando">
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SenalCaudal</TD><TD>Senal de caudal entre 0 y 1. Corresponde al porcentaje de apertura total de grifo</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>SenalTemperatura</TD><TD>Senal de temperatura entre 1 y -1. Corresponde al porcentaje de caudal de agua caliente (positiva) y agua fria (negativa)</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>SenalCaliente</TD><TD>Senal de apertura del agua caliente</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>SenalFria</TD><TD>Senal de apertura del agua fria</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Control_Monomando <font color="darkgreen">
+  &quot;Bloque que controla la regulacion de la griferia monomando&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SenalCaudal <font color="darkgreen">
+    &quot;Senal de caudal entre 0 y 1. Corresponde al porcentaje de apertura total de grifo&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> SenalTemperatura <font color="darkgreen">
+    &quot;Senal de temperatura entre 1 y -1. Corresponde al porcentaje de caudal de agua caliente (positiva) y agua fria (negativa)&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> SenalCaliente <font color="darkgreen">
+    &quot;Senal de apertura del agua caliente&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> SenalFria <font color="darkgreen">
+    &quot;Senal de apertura del agua fria&quot;</font>;
+  
+<font color="blue">equation </font>
+SenalCaliente=SenalCaudal*(0.5*SenalTemperatura+0.5);
+SenalFria=SenalCaudal*(-0.5*SenalTemperatura+0.5);
+  
+<font color="blue">end </font>Control_Monomando;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:09 2014.
+</address></BODY>
+</HTML>

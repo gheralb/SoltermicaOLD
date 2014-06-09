@@ -1,4 +1,5 @@
 model TransmisionCalor1D 
+  "Modelo transferencia de calor glogal. Desprecia la masa térmica de las capas." 
   extends Modelica.Thermal.HeatTransfer.Interfaces.Element1D;
   parameter Real U=1 "Coeficiente global de intercambio de calor";
   parameter Modelica.SIunits.Area A=1 "Superficie de intercambio efectiva";

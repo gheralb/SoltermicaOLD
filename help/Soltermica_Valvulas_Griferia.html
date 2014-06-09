@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Valvulas.Griferia</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete que incluye modelos de griferia de uso sanitario&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Griferia<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Valvulas.Griferia"></A><A HREF="Soltermica_Valvulas.html#Soltermica.Valvulas"
+>Soltermica.Valvulas</A>.Griferia</H2>
+<B>Paquete que incluye modelos de griferia de uso sanitario</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.Valvulas.GriferiaS.png" ALT="Soltermica.Valvulas.Griferia.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Valvulas_Griferia_Ejemplos.html#Soltermica.Valvulas.Griferia.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos y modelos de verificacion de los distintos tipos de griferias</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Valvulas.Griferia.MonoblockS.png" ALT="Soltermica.Valvulas.Griferia.Monoblock" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monoblock"
+>Monoblock</A>
+</TD><TD>Modelo de griferia tradicional monoblock</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Valvulas.Griferia.MonomandoS.png" ALT="Soltermica.Valvulas.Griferia.Monomando" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monomando"
+>Monomando</A>
+</TD><TD>Modelo de griferia monomando</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Monoblock<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Valvulas.Griferia.MonoblockI.png" ALT="Soltermica.Valvulas.Griferia.Monoblock" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Valvulas.Griferia.Monoblock"></A><A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia"
+>Soltermica.Valvulas.Griferia</A>.Monoblock</H2>
+<B>Modelo de griferia tradicional monoblock</B><p>
+<IMG SRC="Soltermica.Valvulas.Griferia.MonoblockD.png" ALT="Soltermica.Valvulas.Griferia.Monoblock">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp_grifo</TD><TD>1</TD><TD>[Pa]</TD></TR>
+<TR><TD>Real</TD><TD>Kv_grifo</TD><TD>1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_referencia</TD><TD>995.6</TD><TD>[kg/m3]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>caliente</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>fria</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>llaveCaliente</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>llaveFria</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Monoblock <font color="darkgreen">&quot;Modelo de griferia tradicional monoblock&quot;</font> 
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> caliente(<font color="blue">final </font>medium=
+        medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> fria(<font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Modelica.Thermal.FluidHeatFlow.Components.Valve</A> valve(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>Kv1=Kv_grifo,
+    <font color="blue">final </font>dp0=dp_grifo,
+    <font color="blue">final </font>rho0=rho_referencia,
+    kv0=0.00001);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Modelica.Thermal.FluidHeatFlow.Components.Valve</A> valve1(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>Kv1=Kv_grifo,
+    <font color="blue">final </font>dp0=dp_grifo,
+    <font color="blue">final </font>rho0=rho_referencia,
+    kv0=0.00001);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> llaveCaliente;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> llaveFria;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(<font color="blue">final </font>medium=
+        medium);
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>();
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dp_grifo=1;
+  <font color="blue">parameter </font>Real Kv_grifo=1;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Modelica.SIunits.Density</A> rho_referencia=995.6;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor</A> v_flowSensor(<font color="blue">final </font>medium
+      =medium);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(llaveCaliente, valve.y);
+  <font color="red">connect</font>(caliente, valve.flowPort_a);
+  <font color="red">connect</font>(fria, valve1.flowPort_a);
+  <font color="red">connect</font>(llaveFria, valve1.y);
+  <font color="red">connect</font>(valve.flowPort_b, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(valve1.flowPort_b, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(v_flowSensor.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(flowPort_b, flowPort_b);
+<font color="blue">end </font>Monoblock;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Monomando<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Valvulas.Griferia.MonomandoI.png" ALT="Soltermica.Valvulas.Griferia.Monomando" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Valvulas.Griferia.Monomando"></A><A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia"
+>Soltermica.Valvulas.Griferia</A>.Monomando</H2>
+<B>Modelo de griferia monomando</B><p>
+<IMG SRC="Soltermica.Valvulas.Griferia.MonomandoD.png" ALT="Soltermica.Valvulas.Griferia.Monomando">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+La grifería monomando dispone de dos entradas de caudal, una de agua caliente y otra de agua fría, y una salida a consumo.<br>
+El modelo incluye dos señales de entrada correspondiente al porcentaje de caudal y a la regulación de temperatura.<br>
+La señal de caudal tiene un rango 0 a 1. La señal de temperatura tiene un rango de 1 a -1, correspondiendo los valores positivos a un mayor porcentaje de agua caliente y viceversa.<br>
+El siguiente gráfico explica de manera ilustrativa como varían los poncentajes de ambos caudales en función de la señal de temperatura:<br>
+</p>
+<img src="../Imagenes/graficasMezclaMonomando.png"><br>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Fluido de trabajo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp_grifo</TD><TD>1</TD><TD>Caida de presion nominal [Pa]</TD></TR>
+<TR><TD>Real</TD><TD>Kv_grifo</TD><TD>1</TD><TD>Coeficiente de caudal de la valvula. Caudal para una determinada caida de presion nominal</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_referencia</TD><TD>995.6</TD><TD>Densidad de referencia para el calculo de caudal [kg/m3]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>caliente</TD><TD>Entrada de agua caliente</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>fria</TD><TD>Entrada de agua fria de red</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Salida a consumo</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>caudal</TD><TD>Senal de entrada de regulacion de cuadal</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>temperatura</TD><TD>Senal de entrada de regulacion de temperatura</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Monomando <font color="darkgreen">&quot;Modelo de griferia monomando&quot;</font> 
+  
+  
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> caliente(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de agua caliente&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> fria(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de agua fria de red&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Salida a consumo&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Modelica.Thermal.FluidHeatFlow.Components.Valve</A> cal(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>Kv1=Kv_grifo,
+    <font color="blue">final </font>dp0=dp_grifo,
+    <font color="blue">final </font>rho0=rho_referencia,
+    kv0=0.00001);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Modelica.Thermal.FluidHeatFlow.Components.Valve</A> fri(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>Kv1=Kv_grifo,
+    <font color="blue">final </font>dp0=dp_grifo,
+    <font color="blue">final </font>rho0=rho_referencia,
+    kv0=0.00001);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> caudal <font color="darkgreen">
+    &quot;Senal de entrada de regulacion de cuadal&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> temperatura <font color="darkgreen">
+    &quot;Senal de entrada de regulacion de temperatura&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor</A> v_flowSensor(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Monomando"
+>ClasesBasicas.ControlesEquipos.Control_Monomando</A> control_Monomando;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.TSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.TSensor</A> tSensor(<font color="blue">final </font>medium=medium);
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Fluido de trabajo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dp_grifo=1 <font color="darkgreen">&quot;Caida de presion nominal&quot;</font>;
+  <font color="blue">parameter </font>Real Kv_grifo=1 <font color="darkgreen">
+    &quot;Coeficiente de caudal de la valvula. Caudal para una determinada caida de presion nominal&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Density"
+>Modelica.SIunits.Density</A> rho_referencia=995.6 <font color="darkgreen">
+    &quot;Densidad de referencia para el calculo de caudal&quot;</font>;
+  
+<font color="blue">equation </font>
+  <font color="red">connect</font>(caliente, cal.flowPort_a);
+  <font color="red">connect</font>(fria, fri.flowPort_a);
+  <font color="red">connect</font>(v_flowSensor.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(cal.flowPort_b, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(fri.flowPort_b, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(control_Monomando.SenalCaliente, cal.y);
+  <font color="red">connect</font>(control_Monomando.SenalFria, fri.y);
+  <font color="red">connect</font>(tSensor.flowPort, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(caudal, control_Monomando.SenalCaudal);
+  <font color="red">connect</font>(temperatura, control_Monomando.SenalTemperatura);
+<font color="blue">end </font>Monomando;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:16 2014.
+</address></BODY>
+</HTML>

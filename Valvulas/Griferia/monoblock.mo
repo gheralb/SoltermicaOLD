@@ -1,40 +1,38 @@
-model monoblock 
+model Monoblock "Modelo de griferia tradicional monoblock" 
   
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a caliente(final medium=
         medium) annotation (extent=[-50,-110; -30,-90]);
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a fria(final medium=medium) 
     annotation (extent=[30,-110; 50,-90]);
   annotation (Diagram, Icon(
-      Polygon(points=[-80,-70; -80,10; 0,-30; -80,-70], style(
+      Polygon(points=[-68,-50; -68,30; -42,-10; -68,-50],
+                                                        style(
           pattern=0,
           fillColor=1,
           rgbfillColor={255,0,0},
           fillPattern=1)),
-      Polygon(points=[0,-30; 80,10; 80,-70; 0,-30], style(
+      Polygon(points=[42,-10; 64,30; 64,-50; 42,-10],
+                                                    style(
           pattern=0,
           fillColor=3,
           rgbfillColor={0,0,255})),
-      Line(points=[-40,-100; -40,-50], style(
+      Line(points=[-40,-100; -22,-48], style(
           color=1,
           rgbcolor={255,0,0},
           fillColor=3,
           rgbfillColor={0,0,255},
           fillPattern=1)),
-      Line(points=[40,-98; 40,-48], style(
+      Line(points=[40,-98; 26,-48], style(
           pattern=0,
           fillColor=3,
           rgbfillColor={0,0,255},
           fillPattern=1)),
-      Polygon(points=[0,-30; -40,40; 40,40; 0,-30], style(
-          pattern=0,
-          fillColor=10,
-          rgbfillColor={135,135,135},
-          fillPattern=1)),
-      Line(points=[0,40; 0,100; 100,100; 100,40], style(
-          color=10,
-          rgbcolor={95,95,95},
-          fillColor=10,
-          rgbfillColor={135,135,135},
+      Polygon(points=[102,42; 84,42; 82,50; 28,20; 42,-10; 36,-48; -36,-48; -42,
+            -10; -30,20; -14,36; 94,70; 102,42], style(
+          color=0,
+          rgbcolor={0,0,0},
+          fillColor=9,
+          rgbfillColor={175,175,175},
           fillPattern=1))));
   Modelica.Thermal.FluidHeatFlow.Components.Valve valve(
     final medium=medium,
@@ -53,7 +51,7 @@ model monoblock
   Modelica.Blocks.Interfaces.RealInput llaveFria 
     annotation (extent=[120,-50; 80,-10]);
   Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=
-        medium) annotation (extent=[90,30; 110,50]);
+        medium) annotation (extent=[90,10; 110,30]);
   parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium();
   parameter Modelica.SIunits.Pressure dp_grifo=1;
   parameter Real Kv_grifo=1;
@@ -83,11 +81,19 @@ equation
       fillColor=10,
       rgbfillColor={135,135,135},
       fillPattern=1));
-  connect(v_flowSensor.flowPort_b, flowPort_b) annotation (points=[72,40; 100,
-        40], style(
+  connect(v_flowSensor.flowPort_b, flowPort_b) annotation (points=[72,40; 86,40;
+        86,20; 100,20],
+             style(
       color=1,
       rgbcolor={255,0,0},
       fillColor=10,
       rgbfillColor={135,135,135},
       fillPattern=1));
-end monoblock;
+  connect(flowPort_b, flowPort_b) annotation (points=[100,20; 100,20; 100,20],
+      style(
+      color=1,
+      rgbcolor={255,0,0},
+      fillColor=9,
+      rgbfillColor={175,175,175},
+      fillPattern=1));
+end Monoblock;

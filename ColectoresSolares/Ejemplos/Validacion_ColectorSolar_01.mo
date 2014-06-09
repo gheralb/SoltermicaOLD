@@ -43,7 +43,7 @@ model Validacion_ColectorSolar_01
     falling=5,
     offset=0,
     startTime=2,
-    period=25000) annotation (extent=[-44,20; -24,40]);
+    period=25000) annotation (extent=[-40,0; -20,20]);
   Modelica.Blocks.Sources.Constant const(k=101300) 
     annotation (extent=[58,-82; 38,-62]);
   Modelica.Blocks.Sources.Constant tempExt(k=273.15 + 30) 
@@ -55,6 +55,8 @@ model Validacion_ColectorSolar_01
     offset=883,
     height=-882,
     startTime=10800) annotation (extent=[50,66; 30,86]);
+  Modelica.Blocks.Sources.Constant factorSombras(k=0) 
+    annotation (extent=[-76,30; -56,50]);
 equation 
   connect(colectorSolar.flowPort_b, ambient.flowPort) 
     annotation (points=[42,36; 60,36], style(color=1, rgbcolor={255,0,0}));
@@ -63,12 +65,12 @@ equation
   connect(prescribedAmbient.flowPort, prescribedVolumeFlow.flowPort_a) 
     annotation (points=[8,-40; 8,-30; 8,-20; 8,-20], style(color=1, rgbcolor={
           255,0,0}));
-  connect(trapezoid3.y, prescribedVolumeFlow.VolumeFlow) annotation (points=[
-        -23,30; -10,30; -10,-10; -2,-10], style(color=74, rgbcolor={0,0,127}));
+  connect(trapezoid3.y, prescribedVolumeFlow.VolumeFlow) annotation (points=[-19,10;
+        -10,10; -10,-10; -2,-10],         style(color=74, rgbcolor={0,0,127}));
   connect(const.y, prescribedAmbient.p_Ambient) annotation (points=[37,-72; 14,
         -72; 14,-60; 15,-60], style(color=74, rgbcolor={0,0,127}));
   connect(tempExt.y, colectorSolar.senalTemperatura) annotation (points=[-41,72;
-        -6,72; -6,28; 21.2,28], style(color=74, rgbcolor={0,0,127}));
+        -6,72; -6,30; 21.2,30], style(color=74, rgbcolor={0,0,127}));
   connect(trapezoid.y, add.u1) annotation (points=[-79,10; -66,10; -66,-14; -62,
         -14], style(color=74, rgbcolor={0,0,127}));
   connect(trapezoid1.y, add.u2) annotation (points=[-79,-30; -70,-30; -70,-26;
@@ -81,4 +83,11 @@ equation
         -64; 2,-60; 1,-60], style(color=74, rgbcolor={0,0,127}));
   connect(ramp.y, colectorSolar.senalIrradiacion) annotation (points=[29,76; 8,
         76; 8,36; 21.2,36], style(color=74, rgbcolor={0,0,127}));
+  connect(factorSombras.y, colectorSolar.factorSombras) annotation (points=[-55,
+        40; -16,40; -16,24; 21.2,24], style(
+      color=74,
+      rgbcolor={0,0,127},
+      fillColor=9,
+      rgbfillColor={175,175,175},
+      fillPattern=1));
 end Validacion_ColectorSolar_01;

@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Valvulas.Griferia.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos y modelos de verificacion de los distintos tipos de griferias&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Valvulas.Griferia.Ejemplos"></A><A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia"
+>Soltermica.Valvulas.Griferia</A>.Ejemplos</H2>
+<B>Ejemplos y modelos de verificacion de los distintos tipos de griferias</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Valvulas_Griferia_Ejemplos.html#Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monoblock_01"
+>Validacion_Monoblock_01</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Soltermica_Valvulas_Griferia_Ejemplos.html#Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monomando_02"
+>Validacion_Monomando_02</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_Monoblock_01<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monoblock_01"></A><A HREF="Soltermica_Valvulas_Griferia_Ejemplos.html#Soltermica.Valvulas.Griferia.Ejemplos"
+>Soltermica.Valvulas.Griferia.Ejemplos</A>.Validacion_Monoblock_01</H2>
+<IMG SRC="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monoblock_01D.png" ALT="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monoblock_01">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_Monoblock_01 
+  <A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monoblock"
+>Soltermica.Valvulas.Griferia.Monoblock</A> monoblock(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    dp_grifo=200000,
+    Kv_grifo=0.0001);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> DemandaCaliente(
+    rising=3,
+    width=60,
+    falling=3,
+    startTime=10,
+    period=1000,
+    amplitude=0.5);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid1(
+    rising=3,
+    width=100,
+    falling=3,
+    period=1000,
+    startTime=50);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> AF(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=301300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(10));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ACS(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=301300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(60));
+<font color="blue">equation </font>
+  <font color="red">connect</font>(monoblock.flowPort_b, sumidero.flowPort);
+  <font color="red">connect</font>(monoblock.fria, AF.flowPort);
+  <font color="red">connect</font>(ACS.flowPort, monoblock.caliente);
+  <font color="red">connect</font>(DemandaCaliente.y, monoblock.llaveCaliente);
+  <font color="red">connect</font>(trapezoid1.y, monoblock.llaveFria);
+<font color="blue">end </font>Validacion_Monoblock_01;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_Monomando_02<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monomando_02"></A><A HREF="Soltermica_Valvulas_Griferia_Ejemplos.html#Soltermica.Valvulas.Griferia.Ejemplos"
+>Soltermica.Valvulas.Griferia.Ejemplos</A>.Validacion_Monomando_02</H2>
+<IMG SRC="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monomando_02D.png" ALT="Soltermica.Valvulas.Griferia.Ejemplos.Validacion_Monomando_02">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_Monomando_02 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> DemandaCaudal(
+    rising=3,
+    falling=3,
+    startTime=10,
+    period=1000,
+    amplitude=1,
+    width=120);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> AF(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(10),
+    p_Ambient=251300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ACS(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(60),
+    p_Ambient=251300);
+  <A HREF="Soltermica_Valvulas_Griferia.html#Soltermica.Valvulas.Griferia.Monomando"
+>Monomando</A> monomando(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    dp_grifo=150000,
+    Kv_grifo=0.0002);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> regulacionTempertura(
+    period=1000,
+    amplitude=1,
+    rising=5,
+    width=60,
+    falling=5,
+    startTime=40);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(monomando.flowPort_b, sumidero.flowPort);
+  <font color="red">connect</font>(AF.flowPort, monomando.fria);
+  <font color="red">connect</font>(ACS.flowPort, monomando.caliente);
+  <font color="red">connect</font>(DemandaCaudal.y, monomando.caudal);
+  <font color="red">connect</font>(regulacionTempertura.y, monomando.temperatura);
+<font color="blue">end </font>Validacion_Monomando_02;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:17 2014.
+</address></BODY>
+</HTML>

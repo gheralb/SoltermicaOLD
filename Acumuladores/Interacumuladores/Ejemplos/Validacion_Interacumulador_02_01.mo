@@ -1,4 +1,5 @@
 model Validacion_Interacumulador_02_01 
+  "Modelo que muestra el comportamiento basico de un interacumulador" 
   Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow CaudalEntrada(
       medium=Modelica.Thermal.FluidHeatFlow.Media.Water(), m=0.1) 
             annotation (extent=[-28,-8; -8,12]);
@@ -26,12 +27,12 @@ model Validacion_Interacumulador_02_01
     annotation (extent=[70,30; 50,50], rotation=-180);
   Soltermica.Acumuladores.Interacumuladores.Interacumulador_Mezcla 
     interacumulador_Mezcla(
-    n=4,
-    n_int=2,
     medium=Modelica.Thermal.FluidHeatFlow.Media.Water(),
     espec=
         Soltermica.Acumuladores.Interacumuladores.CatalogoEquipos.LAPESA_CV_80_M1S(),
-    T_ini=293.15) annotation (extent=[14,-4; 34,16]);
+    T_ini=293.15,
+    n=6,
+    n_int=3)      annotation (extent=[14,-4; 34,16]);
   
 equation 
   connect(ida.flowPort,CaudalEntrada. flowPort_a)            annotation (points=[-40,-30;

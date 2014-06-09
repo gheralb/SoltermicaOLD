@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.ClasesBasicas.VolumenesControl</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete que incluye las definiciones de los modelos de los volumenes de control&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VolumenesControl<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ClasesBasicas.VolumenesControl"></A><A HREF="Soltermica_ClasesBasicas.html#Soltermica.ClasesBasicas"
+>Soltermica.ClasesBasicas</A>.VolumenesControl</H2>
+<B>Paquete que incluye las definiciones de los modelos de los volumenes de control</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnicoS.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"
+>VolumenControlUnico</A>
+</TD><TD>Volumen de control un solo elemento</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1DS.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D"
+>VolumenesControl1D</A>
+</TD><TD>Volumen de control divisible en n elemento. Distribucion unidimensional</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VolumenControlUnico<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnicoI.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"></A><A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl"
+>Soltermica.ClasesBasicas.VolumenesControl</A>.VolumenControlUnico</H2>
+<B>Volumen de control un solo elemento</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnicoD.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m</TD><TD>Volumen*medium.rho</TD><TD>mass of medium [kg]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T0</TD><TD>T_ini</TD><TD>initial temperature of medium [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>Volumen</TD><TD>1</TD><TD>Volumen del sistema [m3]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dP_nom</TD><TD>1</TD><TD>Caida de presion en condiciones nominales [Pa]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>cV_nom</TD><TD>1</TD><TD>Caudal volumetrico en condiciones nominales [m3/s]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T_ini</TD><TD>273.15</TD><TD>Temperatura inicial del volumen de control [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>puertoInt</TD><TD>Puerto de intercambio de calor interno</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>puertoExt</TD><TD>Puerto de intercambio de calor externo</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VolumenControlUnico <font color="darkgreen">&quot;Volumen de control un solo elemento&quot;</font> 
+  <font color="blue">extends </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort</A>(m=Volumen*medium.rho, T0=T_ini,T(start=T_ini));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> puertoInt <font color="darkgreen">
+    &quot;Puerto de intercambio de calor interno&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b</A> puertoExt <font color="darkgreen">
+    &quot;Puerto de intercambio de calor externo&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flow_int <font color="darkgreen">
+    &quot;Intercambio de calor con elementos internos&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flow_ext <font color="darkgreen">
+    &quot;Intercambio de calor con el ambiente&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> Volumen=1 <font color="darkgreen">&quot;Volumen del sistema&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dP_nom=1 <font color="darkgreen">
+    &quot;Caida de presion en condiciones nominales&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> cV_nom=1 <font color="darkgreen">
+    &quot;Caudal volumetrico en condiciones nominales&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Modelica.SIunits.Temp_K</A> T_ini=273.15 <font color="darkgreen">
+    &quot;Temperatura inicial del volumen de control&quot;</font>;
+<font color="blue">equation </font>
+<font color="darkgreen">//Modelo de friccion en el volumen de control</font>
+dp = -dP_nom * (flowPort_a.m_flow^2) / ((cV_nom*medium.rho)^2);
+<font color="darkgreen">//Definicion de las variables en el interfaz de intercambio de calor</font>
+puertoInt.Q_flow=Q_flow_int;
+puertoInt.T=T;
+puertoExt.Q_flow=Q_flow_ext;
+puertoExt.T=T;
+<font color="darkgreen">//Flujo de calor neto en el volumen de control</font>
+Q_flow=Q_flow_int+Q_flow_ext;
+<font color="blue">end </font>VolumenControlUnico;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VolumenesControl1D<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1DI.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D"></A><A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl"
+>Soltermica.ClasesBasicas.VolumenesControl</A>.VolumenesControl1D</H2>
+<B>Volumen de control divisible en n elemento. Distribucion unidimensional</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1DD.png" ALT="Soltermica.ClasesBasicas.VolumenesControl.VolumenesControl1D">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Numero de volumenes de control incluidos en el sistema</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Medio fluido representativo de los volumenes de control. Igual para todos.</TD></TR>
+<TR><TD>Real</TD><TD>volumen</TD><TD>1</TD><TD>Volumen total en del sistema</TD></TR>
+<TR><TD>Real</TD><TD>longitud</TD><TD>1</TD><TD>Longitud total del conjunto en el eje principal de estudio</TD></TR>
+<TR><TD>Real</TD><TD>dp_nom</TD><TD>1</TD><TD>Caida de presion en condiciones nominales en los volumenes de control. Igual para todos</TD></TR>
+<TR><TD>Real</TD><TD>V_flow_nom</TD><TD>1</TD><TD>Caudal circulante en condiciones nominales en los volumenes de control. Igual para todos</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T_ini</TD><TD>273.15</TD><TD>Tempertura inicial de todos los volumenes de control [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>Puerto de entrada de caudal al sistema global de volumenes desde el entorno</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Puerto de salida de caudal al sistema global de volumenes desde el entorno</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>puertoInt[n]</TD><TD>Puertos de intercambio de calor entre elementos internos al sistema</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>puertoExt[n]</TD><TD>Puertos de intercambio de calor entre elementos externos al sistema como el ambiente</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VolumenesControl1D <font color="darkgreen">
+  &quot;Volumen de control divisible en n elemento. Distribucion unidimensional&quot;</font> 
+    <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">
+    &quot;Puerto de entrada de caudal al sistema global de volumenes desde el entorno&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">
+    &quot;Puerto de salida de caudal al sistema global de volumenes desde el entorno&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> puertoInt[n] <font color="darkgreen">
+    &quot;Puertos de intercambio de calor entre elementos internos al sistema&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b</A> puertoExt[n] <font color="darkgreen">
+    &quot;Puertos de intercambio de calor entre elementos externos al sistema como el ambiente&quot;</font>;
+  <A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"
+>Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico</A> volumenControl[n](
+    <font color="blue">each </font>Volumen=volumen/n,
+    <font color="blue">each </font>dP_nom=dp_nom,
+    <font color="blue">each </font>cV_nom=V_flow_nom,
+    <font color="blue">each </font>medium=medium,
+    <font color="blue">each </font>T_ini=T_ini);
+  <font color="blue">parameter </font>Integer n(min=1)=2 <font color="darkgreen">
+    &quot;Numero de volumenes de control incluidos en el sistema&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Medio fluido representativo de los volumenes de control. Igual para todos.&quot;</font>;
+  
+  <font color="blue">parameter </font>Real volumen=1 <font color="darkgreen">&quot;Volumen total en del sistema&quot;</font>;
+  <font color="blue">parameter </font>Real longitud=1 <font color="darkgreen">
+    &quot;Longitud total del conjunto en el eje principal de estudio&quot;</font>;
+  <font color="blue">parameter </font>Real dp_nom=1 <font color="darkgreen">
+    &quot;Caida de presion en condiciones nominales en los volumenes de control. Igual para todos&quot;</font>;
+  <font color="blue">parameter </font>Real V_flow_nom=1 <font color="darkgreen">
+    &quot;Caudal circulante en condiciones nominales en los volumenes de control. Igual para todos&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Modelica.SIunits.Temp_K</A> T_ini=273.15 <font color="darkgreen">
+    &quot;Tempertura inicial de todos los volumenes de control&quot;</font>;
+<font color="blue">equation </font>
+<font color="red">connect</font>(flowPort_b,volumenControl[1].flowPort_a);
+<font color="darkgreen">//conexion de los volumenes de control. Uno detrás de otro (unidimensional)</font>
+<font color="blue">for </font>i<font color="blue"> in </font>1:n-1<font color="blue"> loop</font>
+  <font color="red">connect</font>(volumenControl[i].flowPort_b,volumenControl[i+1].flowPort_a);
+<font color="blue">end for</font>;
+<font color="red">connect</font>(flowPort_a,volumenControl[n].flowPort_b);
+<font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+  <font color="red">connect</font>(volumenControl[i].puertoInt,puertoInt[i]);
+  <font color="red">connect</font>(volumenControl[i].puertoExt,puertoExt[i]);
+<font color="blue">end for</font>;
+<font color="blue">end </font>VolumenesControl1D;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:09 2014.
+</address></BODY>
+</HTML>

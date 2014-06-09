@@ -1,3 +1,2 @@
-package Ejemplos "Ejemplos de funcionamiento de acumuladores de agua caliente"
-
+package Ejemplos "Ejemplos de funcionamiento de depositos acumuladores de agua caliente"
 end Ejemplos;

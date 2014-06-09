@@ -1,5 +1,6 @@
 model Validacion_CargaDescarga_Acumulador_Orden 
-  annotation (uses(Modelica(version="2.2.1")), Diagram);
+  "Modelo que muestra el comportamiento del acumulador cuando se carga y descarga de energia" 
+    annotation (uses(Modelica(version="2.2.1")), Diagram);
   Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow CaudalEntrada(
       medium=Modelica.Thermal.FluidHeatFlow.Media.Water(), m=0.1) 
             annotation (extent=[-40,0; -20,20]);

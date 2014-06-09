@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Acumuladores.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos de funcionamiento de depositos acumuladores de agua caliente&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores.Ejemplos"></A><A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores"
+>Soltermica.Acumuladores</A>.Ejemplos</H2>
+<B>Ejemplos de funcionamiento de depositos acumuladores de agua caliente</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Acumuladores_Ejemplos.html#Soltermica.Acumuladores.Ejemplos.Validacion_Carga_Acumulador_Orden"
+>Validacion_Carga_Acumulador_Orden</A>
+</TD><TD>Modelo que muestra el comportamiento basico del acumulador cuando se carga de energía</TD></TR>
+<TR><TD><A HREF="Soltermica_Acumuladores_Ejemplos.html#Soltermica.Acumuladores.Ejemplos.Validacion_CargaDescarga_Acumulador_Orden"
+>Validacion_CargaDescarga_Acumulador_Orden</A>
+</TD><TD>Modelo que muestra el comportamiento del acumulador cuando se carga y descarga de energia</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_Carga_Acumulador_Orden<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores.Ejemplos.Validacion_Carga_Acumulador_Orden"></A><A HREF="Soltermica_Acumuladores_Ejemplos.html#Soltermica.Acumuladores.Ejemplos"
+>Soltermica.Acumuladores.Ejemplos</A>.Validacion_Carga_Acumulador_Orden</H2>
+<B>Modelo que muestra el comportamiento basico del acumulador cuando se carga de energía</B><p>
+<IMG SRC="Soltermica.Acumuladores.Ejemplos.Validacion_Carga_Acumulador_OrdenD.png" ALT="Soltermica.Acumuladores.Ejemplos.Validacion_Carga_Acumulador_Orden">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_Carga_Acumulador_Orden <font color="darkgreen">
+  &quot;Modelo que muestra el comportamiento basico del acumulador cuando se carga de energía&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> CaudalEntrada(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), m=0.1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ida(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=101300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(70));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> retorno(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> red(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid(
+    amplitude=0.0002,
+    rising=10,
+    falling=10,
+    startTime=10,
+    period=86400,
+    width=1000,
+    offset=0);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores.Acumulador_Orden"
+>Acumulador_Orden</A> acumulador_Orden(
+    n=4,
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Acumuladores.CatalogoEquipos.IDROGAS_CV200SR</font>(),
+    T_ini=293.15);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ida.flowPort, CaudalEntrada.flowPort_a);
+  <font color="red">connect</font>(trapezoid.y, CaudalEntrada.VolumeFlow);
+  <font color="red">connect</font>(CaudalEntrada.flowPort_b, acumulador_Orden.flowPort_a1);
+  <font color="red">connect</font>(retorno.flowPort, acumulador_Orden.flowPort_b1);
+  <font color="red">connect</font>(red.flowPort, acumulador_Orden.flowPort_a);
+  <font color="red">connect</font>(acumulador_Orden.flowPort_b, sumidero.flowPort);
+<font color="blue">end </font>Validacion_Carga_Acumulador_Orden;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_CargaDescarga_Acumulador_Orden<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Acumuladores.Ejemplos.Validacion_CargaDescarga_Acumulador_Orden"></A><A HREF="Soltermica_Acumuladores_Ejemplos.html#Soltermica.Acumuladores.Ejemplos"
+>Soltermica.Acumuladores.Ejemplos</A>.Validacion_CargaDescarga_Acumulador_Orden</H2>
+<B>Modelo que muestra el comportamiento del acumulador cuando se carga y descarga de energia</B><p>
+<IMG SRC="Soltermica.Acumuladores.Ejemplos.Validacion_CargaDescarga_Acumulador_OrdenD.png" ALT="Soltermica.Acumuladores.Ejemplos.Validacion_CargaDescarga_Acumulador_Orden">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_CargaDescarga_Acumulador_Orden <font color="darkgreen">
+  &quot;Modelo que muestra el comportamiento del acumulador cuando se carga y descarga de energia&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> CaudalEntrada(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), m=0.1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ida(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    p_Ambient=101300,
+    T_Ambient=<font color="red">Modelica.SIunits.Conversions.from_degC</font>(70));
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> retorno(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> red(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> SenalCarga(
+    amplitude=0.0002,
+    rising=10,
+    falling=10,
+    startTime=10,
+    period=86400,
+    width=1000,
+    offset=0);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> sumidero(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> CaudalConsumo(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), m=0.1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> SenalConsumo(
+    amplitude=0.0002,
+    rising=10,
+    falling=10,
+    offset=0.0000001,
+    period=86400,
+    width=600,
+    startTime=1000);
+  <A HREF="Soltermica_Acumuladores.html#Soltermica.Acumuladores.Acumulador_Orden"
+>Acumulador_Orden</A> acumulador_Orden(
+    n=4,
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.Acumuladores.CatalogoEquipos.IDROGAS_CV200SR</font>(),
+    T_ini=293.15);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(ida.flowPort, CaudalEntrada.flowPort_a);
+  <font color="red">connect</font>(SenalCarga.y, CaudalEntrada.VolumeFlow);
+  <font color="red">connect</font>(SenalConsumo.y, CaudalConsumo.VolumeFlow);
+  <font color="red">connect</font>(CaudalConsumo.flowPort_a, red.flowPort);
+  <font color="red">connect</font>(CaudalEntrada.flowPort_b, acumulador_Orden.flowPort_a1);
+  <font color="red">connect</font>(acumulador_Orden.flowPort_b1, retorno.flowPort);
+  <font color="red">connect</font>(acumulador_Orden.flowPort_a, CaudalConsumo.flowPort_b);
+  <font color="red">connect</font>(acumulador_Orden.flowPort_b, sumidero.flowPort);
+<font color="blue">end </font>Validacion_CargaDescarga_Acumulador_Orden;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:06 2014.
+</address></BODY>
+</HTML>

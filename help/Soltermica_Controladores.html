@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Controladores</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Controladores especificos para instalaciones solares&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Controladores<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Controladores"></A><A HREF="Soltermica.html#Soltermica"
+>Soltermica</A>.Controladores</H2>
+<B>Controladores especificos para instalaciones solares</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.Controladores.ControladorSolarS.png" ALT="Soltermica.Controladores.ControladorSolar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Controladores.html#Soltermica.Controladores.ControladorSolar"
+>ControladorSolar</A>
+</TD><TD>Controlador solar sencillo. Termostato diferencial</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Controladores.EjemplosS.png" ALT="Soltermica.Controladores.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Controladores_Ejemplos.html#Soltermica.Controladores.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos y modelos de verificacion de controladores solares</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControladorSolar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Controladores.ControladorSolarI.png" ALT="Soltermica.Controladores.ControladorSolar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Controladores.ControladorSolar"></A><A HREF="Soltermica_Controladores.html#Soltermica.Controladores"
+>Soltermica.Controladores</A>.ControladorSolar</H2>
+<B>Controlador solar sencillo. Termostato diferencial</B><p>
+<IMG SRC="Soltermica.Controladores.ControladorSolarD.png" ALT="Soltermica.Controladores.ControladorSolar">
+<H3>Information</H3>
+<PRE></pre>
+    <p>
+    Centralita solar. Funcionamiento de los más simples como termostato diferencial.<br>
+    </p>
+    <img src="../Imagenes/EsquemaControlDiferencial.png"><br>
+    <pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>TemperatureDifference</A></TD><TD>DeltaT_on</TD><TD>&nbsp;</TD><TD>Diferencia tempertura para el arranque del circulador [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>TemperatureDifference</A></TD><TD>DeltaT_off</TD><TD>&nbsp;</TD><TD>Diferencia de temperatura para la parada del circulador [K]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CelsiusTemperature"
+>CelsiusTemperature</A></TD><TD>Temp_Acum</TD><TD>&nbsp;</TD><TD>Temperatura de consigna del acumulador [degC]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TempCol</TD><TD>Senal de temperatura del colector</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TempDep</TD><TD>Senal de temperatura del deposito</TD></TR>
+<TR><TD>output <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>y</TD><TD>Senal de control del circulador</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControladorSolar <font color="darkgreen">
+  &quot;Controlador solar sencillo. Termostato diferencial&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> TempCol <font color="darkgreen">
+    &quot;Senal de temperatura del colector&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> TempDep <font color="darkgreen">
+    &quot;Senal de temperatura del deposito&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> y <font color="darkgreen">&quot;Senal de control del circulador&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.TriggeredTrapezoid"
+>Modelica.Blocks.Logical.TriggeredTrapezoid</A> triggeredTrapezoid(
+    amplitude=1,
+    rising=0.1,
+    offset=0);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add(k1=+1, k2=-1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Hysteresis"
+>Modelica.Blocks.Logical.Hysteresis</A> hysteresis(
+    uLow=DeltaT_off,
+    uHigh=DeltaT_on);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.And"
+>Modelica.Blocks.Logical.And</A> and1;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LessThreshold"
+>Modelica.Blocks.Logical.LessThreshold</A> TempAcu(threshold=Temp_Acum);
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> DeltaT_on <font color="darkgreen">
+    &quot;Diferencia tempertura para el arranque del circulador&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> DeltaT_off <font color="darkgreen">
+    &quot;Diferencia de temperatura para la parada del circulador&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CelsiusTemperature"
+>Modelica.SIunits.CelsiusTemperature</A> Temp_Acum <font color="darkgreen">
+    &quot;Temperatura de consigna del acumulador&quot;</font>;
+  
+<font color="blue">equation </font>
+  <font color="red">connect</font>(triggeredTrapezoid.y, y);
+  <font color="red">connect</font>(add.u1, TempCol);
+  <font color="red">connect</font>(add.u2, TempDep);
+  <font color="red">connect</font>(add.y, hysteresis.u);
+  <font color="red">connect</font>(hysteresis.y, and1.u1);
+  <font color="red">connect</font>(and1.y, triggeredTrapezoid.u);
+  <font color="red">connect</font>(TempAcu.y, and1.u2);
+  <font color="red">connect</font>(TempDep, TempAcu.u);
+<font color="blue">end </font>ControladorSolar;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:11 2014.
+</address></BODY>
+</HTML>

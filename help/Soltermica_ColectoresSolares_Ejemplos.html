@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.ColectoresSolares.Ejemplos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Ejemplos de funcionamiento de captadores solares&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ejemplos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ColectoresSolares.Ejemplos"></A><A HREF="Soltermica_ColectoresSolares.html#Soltermica.ColectoresSolares"
+>Soltermica.ColectoresSolares</A>.Ejemplos</H2>
+<B>Ejemplos de funcionamiento de captadores solares</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_ColectoresSolares_Ejemplos.html#Soltermica.ColectoresSolares.Ejemplos.Validacion_ColectorSolar_01"
+>Validacion_ColectorSolar_01</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Validacion_ColectorSolar_01<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ColectoresSolares.Ejemplos.Validacion_ColectorSolar_01"></A><A HREF="Soltermica_ColectoresSolares_Ejemplos.html#Soltermica.ColectoresSolares.Ejemplos"
+>Soltermica.ColectoresSolares.Ejemplos</A>.Validacion_ColectorSolar_01</H2>
+<IMG SRC="Soltermica.ColectoresSolares.Ejemplos.Validacion_ColectorSolar_01D.png" ALT="Soltermica.ColectoresSolares.Ejemplos.Validacion_ColectorSolar_01">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Validacion_ColectorSolar_01 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid(
+    amplitude=29,
+    rising=60,
+    falling=60,
+    offset=273.15,
+    startTime=300,
+    width=3600,
+    period=14400);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid1(
+    amplitude=16,
+    rising=10,
+    falling=10,
+    width=3600,
+    offset=0,
+    startTime=1200,
+    period=14400);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid2(
+    amplitude=29,
+    rising=10,
+    width=3600,
+    falling=10,
+    startTime=2400,
+    period=14400);
+  <A HREF="Soltermica_ColectoresSolares.html#Soltermica.ColectoresSolares.ColectorSolar"
+>Soltermica.ColectoresSolares.ColectorSolar</A> colectorSolar(
+    medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(),
+    espec=<font color="red">Soltermica.ColectoresSolares.CatalogoEquipos.BAXIROCA_PS_2_0</font>(),
+    T_ini=288.15);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Modelica.Thermal.FluidHeatFlow.Sources.Ambient</A> ambient(medium=
+        <font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), p_Ambient=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow</A> 
+    prescribedVolumeFlow(medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>(), m=
+       0.1);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"
+>Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient</A> prescribedAmbient(
+      medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Water</font>());
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Modelica.Blocks.Sources.Trapezoid</A> trapezoid3(
+    amplitude=0.00011,
+    rising=5,
+    width=7200,
+    falling=5,
+    offset=0,
+    startTime=2,
+    period=25000);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> const(k=101300);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> tempExt(k=273.15 + 30);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add1;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> ramp(
+    duration=10,
+    offset=883,
+    height=-882,
+    startTime=10800);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> factorSombras(k=0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(colectorSolar.flowPort_b, ambient.flowPort);
+  <font color="red">connect</font>(prescribedVolumeFlow.flowPort_b, colectorSolar.flowPort_a);
+  <font color="red">connect</font>(prescribedAmbient.flowPort, prescribedVolumeFlow.flowPort_a);
+  <font color="red">connect</font>(trapezoid3.y, prescribedVolumeFlow.VolumeFlow);
+  <font color="red">connect</font>(const.y, prescribedAmbient.p_Ambient);
+  <font color="red">connect</font>(tempExt.y, colectorSolar.senalTemperatura);
+  <font color="red">connect</font>(trapezoid.y, add.u1);
+  <font color="red">connect</font>(trapezoid1.y, add.u2);
+  <font color="red">connect</font>(trapezoid2.y, add1.u2);
+  <font color="red">connect</font>(add.y, add1.u1);
+  <font color="red">connect</font>(add1.y, prescribedAmbient.T_Ambient);
+  <font color="red">connect</font>(ramp.y, colectorSolar.senalIrradiacion);
+  <font color="red">connect</font>(factorSombras.y, colectorSolar.factorSombras);
+<font color="blue">end </font>Validacion_ColectorSolar_01;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:11 2014.
+</address></BODY>
+</HTML>

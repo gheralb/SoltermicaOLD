@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.ClasesBasicas.TransferenciaCalor</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete con modelos simplificados del fenomeno de tranferencias de calor&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransferenciaCalor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.ClasesBasicas.TransferenciaCalor"></A><A HREF="Soltermica_ClasesBasicas.html#Soltermica.ClasesBasicas"
+>Soltermica.ClasesBasicas</A>.TransferenciaCalor</H2>
+<B>Paquete con modelos simplificados del fenomeno de tranferencias de calor</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1DS.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D"
+>TransmisionCalor1D</A>
+</TD><TD>Modelo transferencia de calor glogal. Desprecia la masa térmica de las capas.</TD></TR>
+<TR><TD><IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermicaS.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica"
+>TransmisionCalor1D_MasaTermica</A>
+</TD><TD>Modelo transferencia de calor glogal. Tienen en cuenta la inercia termica medio material separador.</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransmisionCalor1D<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1DI.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D"></A><A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor"
+>Soltermica.ClasesBasicas.TransferenciaCalor</A>.TransmisionCalor1D</H2>
+<B>Modelo transferencia de calor glogal. Desprecia la masa térmica de las capas.</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1DD.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>U</TD><TD>1</TD><TD>Coeficiente global de intercambio de calor</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A</TD><TD>1</TD><TD>Superficie de intercambio efectiva [m2]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransmisionCalor1D <font color="darkgreen">
+  &quot;Modelo transferencia de calor glogal. Desprecia la masa térmica de las capas.&quot;</font> 
+  <font color="blue">extends </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.Element1D"
+>Modelica.Thermal.HeatTransfer.Interfaces.Element1D</A>;
+  <font color="blue">parameter </font>Real U=1 <font color="darkgreen">&quot;Coeficiente global de intercambio de calor&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> A=1 <font color="darkgreen">&quot;Superficie de intercambio efectiva&quot;</font>;
+<font color="blue">equation </font>
+  Q_flow=A*U*dT;
+<font color="blue">end </font>TransmisionCalor1D;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransmisionCalor1D_MasaTermica<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermicaI.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica"></A><A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor"
+>Soltermica.ClasesBasicas.TransferenciaCalor</A>.TransmisionCalor1D_MasaTermica</H2>
+<B>Modelo transferencia de calor glogal. Tienen en cuenta la inercia termica medio material separador.</B><p>
+<IMG SRC="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermicaD.png" ALT="Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>U_a</TD><TD>1</TD><TD>Coeficiente global de intercambio de calor para el lado a</TD></TR>
+<TR><TD>Real</TD><TD>U_b</TD><TD>1</TD><TD>Coeficiente global de intercambio de calor para el lado b</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A</TD><TD>1</TD><TD>Superficie de intercambio efectiva [m2]</TD></TR>
+<TR><TD>Real</TD><TD>C</TD><TD>1</TD><TD>Capacidad calorifica de la masa</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>HeatPort_b</A></TD><TD>port_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransmisionCalor1D_MasaTermica <font color="darkgreen">
+  &quot;Modelo transferencia de calor glogal. Tienen en cuenta la inercia termica medio material separador.&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> port_a;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b</A> port_b;
+  <A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D"
+>Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D</A> 
+    transmisionCalor1D(
+    <font color="blue">final </font>A=A,
+    <font color="blue">final </font>U=U_a);
+  <A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D"
+>Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D</A> 
+    transmisionCalor1D1(
+    <font color="blue">final </font>U=U_b,
+    <font color="blue">final </font>A=A);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.HeatCapacitor</A> masaTermica(
+    <font color="blue">final </font>C=C);
+  <font color="blue">parameter </font>Real U_a=1 <font color="darkgreen">
+    &quot;Coeficiente global de intercambio de calor para el lado a&quot;</font>;
+  <font color="blue">parameter </font>Real U_b=1 <font color="darkgreen">
+    &quot;Coeficiente global de intercambio de calor para el lado b&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> A=1 <font color="darkgreen">&quot;Superficie de intercambio efectiva&quot;</font>;
+  <font color="blue">parameter </font>Real C=1 <font color="darkgreen">&quot;Capacidad calorifica de la masa&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(port_a, transmisionCalor1D.port_a);
+  <font color="red">connect</font>(transmisionCalor1D.port_b, masaTermica.port);
+  <font color="red">connect</font>(masaTermica.port, transmisionCalor1D1.port_a);
+  <font color="red">connect</font>(transmisionCalor1D1.port_b, port_b);
+  <font color="red">connect</font>(port_b, port_b);
+<font color="blue">end </font>TransmisionCalor1D_MasaTermica;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:09 2014.
+</address></BODY>
+</HTML>

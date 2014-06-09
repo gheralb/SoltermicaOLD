@@ -1,4 +1,5 @@
 package CatalogoEquipos 
+  "Catalogo con las especificaciones de distintos depositos acumuladores" 
   record Especificaciones 
     "Clase record donde se incluyen las especificaciones de los depositos de acumulacion de agua caliente" 
     extends Soltermica.ClasesBasicas.Iconos.Icono_CatalagoEquipo;

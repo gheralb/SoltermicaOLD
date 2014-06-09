@@ -1,16 +1,21 @@
 model TransmisionCalor1D_MasaTermica 
-  
+  "Modelo transferencia de calor glogal. Tienen en cuenta la inercia termica medio material separador." 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a 
     annotation (extent=[-110,-10; -90,10]);
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_b 
     annotation (extent=[90,-10; 110,10]);
   Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D 
-    transmisionCalor1D(                 final A=A, final U=U_a) 
-                                        annotation (extent=[-60,-10; -40,10]);
+    transmisionCalor1D(
+    final A=A,
+    final U=U_a) 
+    annotation (extent=[-60,-10; -40,10]);
   Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D 
-    transmisionCalor1D1(                 final U=U_b, final A=A) 
-                                         annotation (extent=[40,-10; 60,10]);
-  Modelica.Thermal.HeatTransfer.HeatCapacitor masaTermica(final C=C) 
+    transmisionCalor1D1(
+    final U=U_b,
+    final A=A) 
+    annotation (extent=[40,-10; 60,10]);
+  Modelica.Thermal.HeatTransfer.HeatCapacitor masaTermica(
+    final C=C) 
     annotation (extent=[-10,0; 10,20]);
   annotation (Diagram, DymolaStoredErrors,
     Icon(

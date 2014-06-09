@@ -1,4 +1,5 @@
 model Validacion_Carga_Acumulador_Orden 
+  "Modelo que muestra el comportamiento basico del acumulador cuando se carga de energía" 
   annotation (uses(Modelica(version="2.2.1")), Diagram);
   Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow CaudalEntrada(
       medium=Modelica.Thermal.FluidHeatFlow.Media.Water(), m=0.1) 

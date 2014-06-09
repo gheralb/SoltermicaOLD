@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>Soltermica.Calderas</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Paquete de calderas&quot;">
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Calderas<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Soltermica.Calderas"></A><A HREF="Soltermica.html#Soltermica"
+>Soltermica</A>.Calderas</H2>
+<B>Paquete de calderas</B>
+<P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Soltermica.Calderas.CalderaS.png" ALT="Soltermica.Calderas.Caldera" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Calderas.html#Soltermica.Calderas.Caldera"
+>Caldera</A>
+</TD><TD>Modelo de caledra simplificado</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Calderas.CatalogoEquiposS.png" ALT="Soltermica.Calderas.CatalogoEquipos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Calderas_CatalogoEquipos.html#Soltermica.Calderas.CatalogoEquipos"
+>CatalogoEquipos</A>
+</TD><TD>Catalogo con las especificaciones de distintas calderas</TD></TR>
+<TR><TD><IMG SRC="Soltermica.Calderas.CatalogoEquiposS.png" ALT="Soltermica.Calderas.Ejemplos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Soltermica_Calderas_Ejemplos.html#Soltermica.Calderas.Ejemplos"
+>Ejemplos</A>
+</TD><TD>Ejemplos de funcionamiento de calderas</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Caldera<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Soltermica.Calderas.CalderaI.png" ALT="Soltermica.Calderas.Caldera" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Soltermica.Calderas.Caldera"></A><A HREF="Soltermica_Calderas.html#Soltermica.Calderas"
+>Soltermica.Calderas</A>.Caldera</H2>
+<B>Modelo de caledra simplificado</B><p>
+<IMG SRC="Soltermica.Calderas.CalderaD.png" ALT="Soltermica.Calderas.Caldera">
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Soltermica_Calderas_CatalogoEquipos.html#Soltermica.Calderas.CatalogoEquipos.Especificaciones"
+>Especificaciones</A></TD><TD>espec</TD><TD>Soltermica.Calderas.Catalogo...</TD><TD>Especificaciones del equipo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>Modelica.Thermal.FluidHeatFl...</TD><TD>Fluido de trabajo</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CelsiusTemperature"
+>CelsiusTemperature</A></TD><TD>TempReg</TD><TD>40</TD><TD>Temperatura de consigna de salida de la caldera [degC]</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Temp_K</A></TD><TD>T_ini</TD><TD>293.15</TD><TD>Temperatura inicial del conjunto de la caldera [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>Entrada de agua fria</TD></TR>
+<TR><TD><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>Salida de agua caliente</TD></TR>
+<TR><TD>input <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_amb</TD><TD>Temperatura ambiental que rodea a la caldera</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Caldera <font color="darkgreen">&quot;Modelo de caledra simplificado&quot;</font> 
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a</A> flowPort_a(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Entrada de agua fria&quot;</font>;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b</A> flowPort_b(
+    <font color="blue">final </font>medium=medium) <font color="darkgreen">&quot;Salida de agua caliente&quot;</font>;
+  <A HREF="Soltermica_ClasesBasicas_VolumenesControl.html#Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico"
+>Soltermica.ClasesBasicas.VolumenesControl.VolumenControlUnico</A> 
+    volumenControlUnico(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>T_ini=T_ini,
+    <font color="blue">final </font>dP_nom=espec.dp_nom,
+    <font color="blue">final </font>cV_nom=espec.V_flow_nom,
+    <font color="blue">final </font>Volumen=espec.V_cald);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor</A> v_flowSensor(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.TSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.TSensor</A> tSensor(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.PrescribedHeatFlow</A> prescribedHeatFlow1;
+  <A HREF="Soltermica_ClasesBasicas_ControlesEquipos.html#Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera"
+>Soltermica.ClasesBasicas.ControlesEquipos.Control_Caldera</A> control_Caldera(
+    <font color="blue">final </font>medium=medium,
+    <font color="blue">final </font>caudalMinACS=espec.V_flow_min,
+    <font color="blue">final </font>rendimientoInstantaneo=espec.RendimientoInstantaneo,
+    <font color="blue">final </font>GradoModulacionMin=espec.ModulacionMinima,
+    <font color="blue">final </font>PotenciaNominal=espec.PotenciaNominal,
+    <font color="blue">final </font>PCCombustible=espec.PCCombustible,
+    <font color="blue">final </font>TempRegulacion=TempReg);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_amb <font color="darkgreen">
+    &quot;Temperatura ambiental que rodea a la caldera&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Soltermica_Calderas_CatalogoEquipos.html#Soltermica.Calderas.CatalogoEquipos.Especificaciones"
+>Soltermica.Calderas.CatalogoEquipos.Especificaciones</A> espec=<font color="red">Soltermica.Calderas.CatalogoEquipos.Especificaciones</font>() <font color="darkgreen">
+    &quot;Especificaciones del equipo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Modelica.Thermal.FluidHeatFlow.Media.Medium</A> medium=<font color="red">Modelica.Thermal.FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Fluido de trabajo&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.CelsiusTemperature"
+>Modelica.SIunits.CelsiusTemperature</A> TempReg=40 <font color="darkgreen">
+    &quot;Temperatura de consigna de salida de la caldera&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Modelica.SIunits.Temp_K</A> T_ini=293.15 <font color="darkgreen">
+    &quot;Temperatura inicial del conjunto de la caldera&quot;</font>;
+  <A HREF="Soltermica_ClasesBasicas_TransferenciaCalor.html#Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica"
+>Soltermica.ClasesBasicas.TransferenciaCalor.TransmisionCalor1D_MasaTermica</A> 
+    transmisionCalor1D_MasaTermica(
+    U_a=5000 <font color="darkgreen">&quot;Coeficiente estimado conveccion liquido&quot;</font>,
+    <font color="blue">final </font>A=espec.S_cald,
+    <font color="blue">final </font>C=espec.CapacidadTermicaVacio,
+    U_b=20 <font color="darkgreen">&quot;Coeficiente estimado de conveccion natural con el ambiente&quot;</font>);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.PrescribedTemperature</A> prescribedTemperature;
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor</A> h_flowSensor_in(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Thermal_FluidHeatFlow_Sensors.html#Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor"
+>Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor</A> h_flowSensor_out(
+    <font color="blue">final </font>medium=medium);
+  <A HREF="file:///C:/Program Files/Dymola/Modelica/Library/Modelica 2.2.1/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> diferencia(k2=-1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(flowPort_a, v_flowSensor.flowPort_a);
+  <font color="red">connect</font>(flowPort_a, tSensor.flowPort);
+  <font color="red">connect</font>(prescribedHeatFlow1.port, volumenControlUnico.puertoInt);
+  <font color="red">connect</font>(v_flowSensor.y, control_Caldera.V_flow_in);
+  <font color="red">connect</font>(tSensor.y, control_Caldera.T_in);
+  <font color="red">connect</font>(T_amb, prescribedTemperature.T);
+  <font color="red">connect</font>(prescribedTemperature.port, transmisionCalor1D_MasaTermica.port_b);
+  <font color="red">connect</font>(transmisionCalor1D_MasaTermica.port_a, volumenControlUnico.puertoExt);
+  <font color="red">connect</font>(control_Caldera.potenciaTeorica, prescribedHeatFlow1.Q_flow);
+  <font color="red">connect</font>(h_flowSensor_in.flowPort_b, volumenControlUnico.flowPort_a);
+  <font color="red">connect</font>(v_flowSensor.flowPort_b, h_flowSensor_in.flowPort_a);
+  <font color="red">connect</font>(volumenControlUnico.flowPort_b, h_flowSensor_out.flowPort_a);
+  <font color="red">connect</font>(h_flowSensor_out.flowPort_b, flowPort_b);
+  <font color="red">connect</font>(h_flowSensor_out.y, diferencia.u1);
+  <font color="red">connect</font>(h_flowSensor_in.y, diferencia.u2);
+  <font color="red">connect</font>(diferencia.y, control_Caldera.Pot_Real);
+<font color="blue">end </font>Caldera;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Jun 09 02:33:08 2014.
+</address></BODY>
+</HTML>
