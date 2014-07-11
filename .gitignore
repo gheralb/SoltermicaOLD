@@ -7,7 +7,6 @@ dslog.txt
 dsfinal.txt
 dsmodel.c
 dymosim.exe
-*.mat
 *.bak-mo
 *.mof
 
